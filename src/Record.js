@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import MaskRect from './MaskRect';
+
 const aspectRatio = 1504 / 1024;
 const margin = { top: 20, right: 20, bottom: 20, left: 20 };
 
@@ -25,22 +27,16 @@ class Record extends Component {
       imgY: margin.top,
       imgWidth,
     });
-
   };
 
   render() {
     const { height, imgX, imgY, imgWidth, imgHeight } = this.state;
 
+    const imgDims = { x: imgX, y: imgY, width: imgWidth, height: imgHeight };
     return (
       <svg width={document.body.clientWidth} height={height}>
-        <image
-          x={imgX}
-          y={imgY}
-          width={imgWidth}
-          height={imgHeight}
-          id="img"
-          xlinkHref="/img/ancestral-map.jpg"
-        />
+        <image {...imgDims} xlinkHref="/img/ancestral-map.jpg" />
+        <MaskRect imgDims={imgDims} />
       </svg>
     );
   }
