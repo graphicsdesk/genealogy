@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import { clipId } from './constants';
 
-import MaskRect from './MaskRect';
+import ImageMask from './ImageMask';
+import ClipPath from './ClipPath';
 
 const aspectRatio = 1504 / 1024;
 const margin = { top: 20, right: 20, bottom: 20, left: 20 };
 
 class Record extends Component {
-  state = {};
+  state = {
+    height: null,
+    imgX: null,
+    imgY: null,
+    imgWidth: null,
+    imgHeight: null,
+  };
 
   componentDidMount() {
     setTimeout(() => {
@@ -35,8 +43,20 @@ class Record extends Component {
     const imgDims = { x: imgX, y: imgY, width: imgWidth, height: imgHeight };
     return (
       <svg width={document.body.clientWidth} height={height}>
+        <defs>
+          <ClipPath
+            imgDims={imgDims}
+            fracs={{ x: 0.4, y: 0.4, w: 0.1, h: 0.1 }}
+          />
+        </defs>
+
         <image {...imgDims} xlinkHref="/img/ancestral-map.jpg" />
-        <MaskRect imgDims={imgDims} />
+        <ImageMask imgDims={imgDims} />
+        <image
+          {...imgDims}
+          xlinkHref="/img/ancestral-map.jpg"
+          clipPath={`url(#${clipId})`}
+        />
       </svg>
     );
   }

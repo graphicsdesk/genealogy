@@ -4,12 +4,12 @@ import injectSheet from 'react-jss';
 const styles = {
   mask: {
     fill: '#000',
-    fillOpacity: 0.3,
+    fillOpacity: 0.35,
   },
 };
 
-const MaskRect = ({ classes, imgDims }) => (
+const ImageMask = ({ classes, imgDims }) => (
   <rect {...imgDims} className={classes.mask} />
 );
 
-export default injectSheet(styles)(MaskRect);
+export default injectSheet(styles)(ImageMask);
