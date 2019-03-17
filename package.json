@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "archieml": "^0.4.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-jss": "^8.6.1",
+    "react-scripts": "2.1.8",
+    "react-scrollama": "^0.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
