@@ -1,10 +1,17 @@
 import React from 'react';
+import injectSheet from 'react-jss';
 import Record from './Record';
 
-const App = () => (
-  <div>
+const styles = {
+  App: {
+    marginBottom: '70vh',
+  },
+};
+
+const App = ({ classes }) => (
+  <div className={classes.App}>
     <Record />
   </div>
 );
 
-export default App;
+export default injectSheet(styles)(App);

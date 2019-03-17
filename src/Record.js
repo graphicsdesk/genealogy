@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
 
+const aspectRatio = 1504 / 1024;
+const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+
 class Record extends Component {
-  state = {
-    width: 0,
-    height: window.innerHeight,
-  };
+  state = {};
 
   componentDidMount() {
-    // After page loads, calculate client width (does not include scrollbar)
-    this.setState({ width: document.body.clientWidth });
+    setTimeout(() => {
+      // hacky way to wait for document.body.clientWidth to account for scrollbar
+      this.updateDimensions();
+    }, 0);
+
+    const height = window.innerHeight;
+    this.setState({ height, imgHeight: height - margin.top - margin.bottom });
   }
 
+  updateDimensions = () => {
+    const width = document.body.clientWidth;
+    const imgWidth = this.state.imgHeight / aspectRatio;
+    const imgX = width / 2 - imgWidth;
+    this.setState({
+      imgX,
+      imgY: margin.top,
+      imgWidth,
+    });
+
+  };
+
   render() {
-    const { width, height } = this.state;
+    const { height, imgX, imgY, imgWidth, imgHeight } = this.state;
 
     return (
-      <svg width={width} height={height}>
+      <svg width={document.body.clientWidth} height={height}>
         <image
-          x={0}
-          y={0}
-          width={width / 2}
-          height="100%"
+          x={imgX}
+          y={imgY}
+          width={imgWidth}
+          height={imgHeight}
+          id="img"
           xlinkHref="/img/ancestral-map.jpg"
         />
       </svg>
