@@ -8,3 +8,7 @@ export const calculateClipDims = (imgDims, clipFracs) => {
     height: fracH * height,
   };
 };
+
+export const areEqualShallow = (a, b) =>
+  Object.keys(a).length === Object.keys(b).length &&
+  Object.keys(a).every(key => b.hasOwnProperty(key) && a[key] === b[key]);

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import injectSheet from 'react-jss';
 import Record from './Record';
+import { areEqualShallow } from '../../utils';
 
 const styles = {
   sticky: {
@@ -39,7 +40,9 @@ class Graphic extends PureComponent {
   };
 
   onStepEnter = ({ data: { text, ...clip } }) => {
-    this.setState({ clip });
+    if (!areEqualShallow(this.state.clip, clip)) {
+      this.setState({ clip });
+    }
   };
 
   render() {
