@@ -12,11 +12,11 @@ const ImageMasks = ({ classes, imgDims }) => {
   const { leftX, y, width, height } = imgDims;
   return (
     <rect
+      className={classes.mask}
       x={leftX}
       y={y}
-      width={width * 2}
+      width={2 * width}
       height={height}
-      className={classes.mask}
     />
   );
 };

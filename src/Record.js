@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { imagesId } from './constants';
 
 import ClipPath from './ClipPath';
 import ImageClip from './ImageClip';
 import Image from './Image';
-import ImageMasks from './ImageMasks';
+import ImageMask from './ImageMask';
+import { imagesId } from './constants';
 
-const aspectRatio = 1504 / 1024;
+const ASPECT_RATIO = 1504 / 1024;
 const margin = { top: 20, right: 20, bottom: 20, left: 20 };
 
 class Record extends Component {
@@ -34,7 +34,7 @@ class Record extends Component {
 
   updateDimensions = () => {
     const width = document.body.clientWidth;
-    const imgWidth = this.state.imgHeight / aspectRatio;
+    const imgWidth = this.state.imgHeight / ASPECT_RATIO;
 
     this.setState({
       leftImgX: width / 2 - imgWidth,
@@ -62,6 +62,7 @@ class Record extends Component {
       width: imgWidth,
       height: imgHeight,
     };
+
     return (
       <svg width={document.body.clientWidth} height={height}>
         <defs>
@@ -72,7 +73,7 @@ class Record extends Component {
           <Image imgDims={imgDims} href="/img/ancestral-map.jpg" leftSide />
           <Image imgDims={imgDims} href="/img/portraits.jpg" />
         </g>
-        <ImageMasks imgDims={imgDims} />
+        <ImageMask imgDims={imgDims} />
         <ImageClip />
       </svg>
     );
