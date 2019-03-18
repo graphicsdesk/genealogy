@@ -14,6 +14,8 @@ class Record extends Component {
     imgY: null,
     imgWidth: null,
     imgHeight: null,
+
+    clipFracs: { x: 0.4, y: 0.4, w: 0.1, h: 0.1 },
   };
 
   componentDidMount() {
@@ -38,7 +40,7 @@ class Record extends Component {
   };
 
   render() {
-    const { height, imgX, imgY, imgWidth, imgHeight } = this.state;
+    const { height, imgX, imgY, imgWidth, imgHeight, clipFracs } = this.state;
 
     const imgDims = { x: imgX, y: imgY, width: imgWidth, height: imgHeight };
     return (
@@ -46,7 +48,7 @@ class Record extends Component {
         <defs>
           <ClipPath
             imgDims={imgDims}
-            fracs={{ x: 0.4, y: 0.4, w: 0.1, h: 0.1 }}
+            fracs={clipFracs}
           />
         </defs>
 
