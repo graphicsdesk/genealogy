@@ -4,7 +4,13 @@ import injectSheet from 'react-jss';
 import Graphic from './Graphic';
 
 import copy from './copy';
-const steps = archieml.load(copy).steps;
+const steps = archieml.load(copy).steps.map(({ text, x, y, w, h }) => ({
+  text,
+  x: +x,
+  y: +y,
+  w: +w,
+  h: +h,
+}));
 
 const styles = {
   App: {

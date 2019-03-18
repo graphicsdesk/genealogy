@@ -49,7 +49,7 @@ class Graphic extends PureComponent {
     return (
       <div className={classes.Graphic}>
         <figure className={classes.sticky}>
-          <Record clip={clip}/>
+          <Record clip={clip} />
         </figure>
         <article className={classes.steps}>
           <Scrollama onStepEnter={this.onStepEnter}>
