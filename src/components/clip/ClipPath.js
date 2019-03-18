@@ -1,26 +1,18 @@
-import React from 'react';
-import injectSheet from 'react-jss';
+import React, { Component } from 'react';
+import animate from './animate';
 import { clipId } from '../../constants';
 
 const CORNER_RADIUS = 3;
 
-const styles = {
-  rect: {
-    transitionDuration: '0.3s',
-  },
-};
+const ClipPath = ({ dims, transform }) => (
+  <clipPath id={clipId}>
+    <rect
+      {...dims}
+      transform={transform}
+      rx={CORNER_RADIUS}
+      ry={CORNER_RADIUS}
+    />
+  </clipPath>
+);
 
-const ClipPath = ({ classes, dims }) => {
-  return (
-    <clipPath id={clipId}>
-      <rect
-        className={classes.rect}
-        {...dims}
-        rx={CORNER_RADIUS}
-        ry={CORNER_RADIUS}
-      />
-    </clipPath>
-  );
-};
-
-export default injectSheet(styles)(ClipPath);
+export default animate(ClipPath);
