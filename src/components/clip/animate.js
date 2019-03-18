@@ -8,8 +8,8 @@ const ANIM_DURATION = 300;
 const animate = WrappedComponent => {
   class AnimatedComponent extends Component {
     state = {
-      translateX: 0,
-      translateY: 0,
+      x: 0,
+      y: 0,
     };
 
     componentDidUpdate(prevProps) {
@@ -17,23 +17,22 @@ const animate = WrappedComponent => {
 
       const { dims: { x: pX, y: pY } } = prevProps;
       const { dims: { x, y } } = this.props;
-      const dx = pX - x;
-      const dy = pY - y;
 
-      const interpolateX = interpolateNumber(dx, 0);
-      const interpolateY = interpolateNumber(dy, 0);
+      const interpolateX = interpolateNumber(pX, x);
+      const interpolateY = interpolateNumber(pY, y);
 
       let start = null;
       const updateTransform = timestamp => {
-        if (!start) start = timestamp;
-        const elapsed = timestamp - start;
-        console.log(elapsed);
-        const t = elapsed / ANIM_DURATION;
+        const elapsed = timestamp - (start || (start = timestamp));
         if (elapsed < ANIM_DURATION) {
-          this.setState({ translateX: interpolateX(t), translateY: interpolateY(t) });
+          const t = elapsed / ANIM_DURATION;
+          this.setState({
+            x: interpolateX(t),
+            y: interpolateY(t),
+          });
           window.requestAnimationFrame(updateTransform);
         } else {
-          this.setState({ translateX: 0, translateY: 0 });
+          this.setState({ x, y });
         }
       };
 
@@ -41,11 +40,10 @@ const animate = WrappedComponent => {
     }
 
     render() {
-      const { translateX, translateY } = this.state;
       return (
         <WrappedComponent
-          dims={this.props.dims}
-          transform={`translate(${translateX}, ${translateY})`}
+          {...this.props}
+          dims={{ ...this.props.dims, ...this.state }}
         />
       );
     }
@@ -55,8 +53,8 @@ const animate = WrappedComponent => {
     dims: PropTypes.exact({
       x: PropTypes.number.isRequired,
       y: PropTypes.number.isRequired,
-      width: PropTypes.number.isRequired,
-      height: PropTypes.number.isRequired,
+      width: PropTypes.number,
+      height: PropTypes.number,
     }).isRequired,
   };
 

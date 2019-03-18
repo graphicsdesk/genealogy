@@ -4,14 +4,9 @@ import { clipId } from '../../constants';
 
 const CORNER_RADIUS = 3;
 
-const ClipPath = ({ dims, transform }) => (
+const ClipPath = ({ dims }) => (
   <clipPath id={clipId}>
-    <rect
-      {...dims}
-      transform={transform}
-      rx={CORNER_RADIUS}
-      ry={CORNER_RADIUS}
-    />
+    <rect {...dims} rx={CORNER_RADIUS} ry={CORNER_RADIUS} />
   </clipPath>
 );
 

@@ -21,10 +21,10 @@ const styles = {
 
 const Label = ({ classes, text, dims, transform }) => (
   <Fragment>
-    <text className={classes.backText} {...dims} {...transform}>
+    <text className={classes.backText} {...dims}>
       {text}
     </text>
-    <text className={classes.frontText} {...dims} {...transform}>
+    <text className={classes.frontText} {...dims}>
       {text}
     </text>
   </Fragment>
