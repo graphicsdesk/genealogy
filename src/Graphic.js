@@ -1,8 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import injectSheet from 'react-jss';
+import Record from './Record';
 
 const styles = {
+  sticky: {
+    position: 'sticky',
+    // position: '-webkit-sticky',
+    top: 0,
+  },
   steps: {
     padding: '0 5vw 130vh 5vw',
   },
@@ -25,28 +31,17 @@ const styles = {
     fontWeight: 400,
     lineHeight: '2rem', //30px
   },
-  sticky: {
-    position: 'sticky',
-    position: '-webkit-sticky',
-    width: '100%',
-    height: '100vh',
-    top: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
 };
 
 class Graphic extends PureComponent {
-  onStepEnter = () => {
-    console.log('yote');
-  }
+  onStepEnter = () => {};
 
   render() {
     const { classes, steps } = this.props;
     return (
       <div className={classes.Graphic}>
         <figure className={classes.sticky}>
+          <Record />
         </figure>
         <article className={classes.steps}>
           <Scrollama onStepEnter={this.onStepEnter}>
