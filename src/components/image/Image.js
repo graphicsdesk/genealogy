@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Image = ({ imgDims, href, leftSide = false }) => {
-  const { leftX, rightX, y, width, height } = imgDims;
+const Image = ({ dims, href, leftSide = false }) => {
+  const { leftX, rightX, y, width, height } = dims;
 
   return (
     <image

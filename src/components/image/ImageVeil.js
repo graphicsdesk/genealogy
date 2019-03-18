@@ -8,8 +8,8 @@ const styles = {
   },
 };
 
-const ImageMasks = ({ classes, imgDims }) => {
-  const { leftX, y, width, height } = imgDims;
+const ImageVeil = ({ classes, dims }) => {
+  const { leftX, y, width, height } = dims;
   return (
     <rect
       className={classes.mask}
@@ -21,4 +21,4 @@ const ImageMasks = ({ classes, imgDims }) => {
   );
 };
 
-export default injectSheet(styles)(ImageMasks);
+export default injectSheet(styles)(ImageVeil);

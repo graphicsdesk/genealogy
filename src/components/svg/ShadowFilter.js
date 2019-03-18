@@ -1,5 +1,5 @@
 import React from 'react';
-import { shadowId } from './constants';
+import { shadowId } from '../../constants';
 
 // Adapted from https://stackoverflow.com/questions/6088409/svg-drop-shadow-using-css3
 const ShadowFilter = () => (
