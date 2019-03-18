@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import injectSheet from 'react-jss';
+import animate from './animate';
 
 const font = '500 1rem "Atlas Grotesk"';
 const styles = {
@@ -18,24 +19,28 @@ const styles = {
   },
 };
 
+const Label = ({ classes, text, dims, transform }) => (
+  <Fragment>
+    <text className={classes.backText} {...dims} {...transform}>
+      {text}
+    </text>
+    <text className={classes.frontText} {...dims} {...transform}>
+      {text}
+    </text>
+  </Fragment>
+);
+const AnimatedLabel = animate(injectSheet(styles)(Label));
+
 const ClipLabel = ({ classes, clipDims, text }) => {
-  let { x, y, height } = clipDims;
+  const { x, y, height } = clipDims;
+  const dims = { x, y };
   if (y > 12) {
-    y -= 10;
+    dims.y -= 10;
   } else {
-    y += height + 6;
+    dims.y += height + 6;
   }
 
-  return (
-    <Fragment>
-      <text className={classes.backText} x={x} y={y}>
-        {text}
-      </text>
-      <text className={classes.frontText} x={x} y={y}>
-        {text}
-      </text>
-    </Fragment>
-  );
+  return <AnimatedLabel dims={dims} text={text} />;
 };
 
-export default injectSheet(styles)(ClipLabel);
+export default ClipLabel;
