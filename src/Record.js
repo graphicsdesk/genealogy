@@ -4,10 +4,11 @@ import ClipPath from './ClipPath';
 import ImageClip from './ImageClip';
 import Image from './Image';
 import ImageMask from './ImageMask';
-import { imagesId } from './constants';
+import ShadowFilter from './ShadowFilter';
+import { imagesId, shadowId } from './constants';
 
 const ASPECT_RATIO = 1504 / 1024;
-const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+const margin = { top: 20, right: 20, bottom: 24, left: 20 };
 
 class Record extends Component {
   state = {
@@ -65,11 +66,12 @@ class Record extends Component {
 
     return (
       <svg width={document.body.clientWidth} height={height}>
+        <ShadowFilter />
         <defs>
           <ClipPath imgDims={imgDims} fracs={clipFracs} />
         </defs>
 
-        <g id={imagesId}>
+        <g id={imagesId} style={{ filter: `url(#${shadowId})` }}>
           <Image imgDims={imgDims} href="/img/ancestral-map.jpg" leftSide />
           <Image imgDims={imgDims} href="/img/portraits.jpg" />
         </g>
