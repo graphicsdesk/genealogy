@@ -19,8 +19,6 @@ class Record extends Component {
     imgY: null,
     imgWidth: null,
     imgHeight: null,
-
-    clipFracs: { x: 1.4, y: 0.4, w: 0.1, h: 0.1 },
   };
 
   componentDidMount() {
@@ -53,8 +51,8 @@ class Record extends Component {
       imgY,
       imgWidth,
       imgHeight,
-      clipFracs,
     } = this.state;
+    const { clip } = this.props;
 
     const imgDims = {
       leftX: leftImgX,
@@ -68,7 +66,7 @@ class Record extends Component {
       <svg width={document.body.clientWidth} height={height}>
         <ShadowFilter />
         <defs>
-          <ClipPath imgDims={imgDims} fracs={clipFracs} />
+          <ClipPath imgDims={imgDims} fracs={clip} />
         </defs>
 
         <g id={imagesId} style={{ filter: `url(#${shadowId})` }}>

@@ -34,21 +34,29 @@ const styles = {
 };
 
 class Graphic extends PureComponent {
-  onStepEnter = () => {};
+  state = {
+    clip: { x: 0, y: 0, w: 0, h: 0 },
+  };
+
+  onStepEnter = ({ data: { text, ...clip } }) => {
+    this.setState({ clip });
+  };
 
   render() {
+    const { clip } = this.state;
     const { classes, steps } = this.props;
+
     return (
       <div className={classes.Graphic}>
         <figure className={classes.sticky}>
-          <Record />
+          <Record clip={clip}/>
         </figure>
         <article className={classes.steps}>
           <Scrollama onStepEnter={this.onStepEnter}>
-            {steps.map(({ text }) => (
-              <Step key={text}>
+            {steps.map(data => (
+              <Step key={data.text} data={data}>
                 <div className={classes.step}>
-                  <p className={classes.stepText}>{text}</p>
+                  <p className={classes.stepText}>{data.text}</p>
                 </div>
               </Step>
             ))}
