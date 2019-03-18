@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { interpolateString } from 'd3-interpolate';
+import { interpolateNumber } from 'd3-interpolate';
 import { areEqualShallow } from '../../utils';
 
 const ANIM_DURATION = 300;
@@ -8,7 +8,8 @@ const ANIM_DURATION = 300;
 const animate = WrappedComponent => {
   class AnimatedComponent extends Component {
     state = {
-      translate: 'translate(0, 0)',
+      translateX: 0,
+      translateY: 0,
     };
 
     componentDidUpdate(prevProps) {
@@ -19,21 +20,20 @@ const animate = WrappedComponent => {
       const dx = pX - x;
       const dy = pY - y;
 
-      const interpolator = interpolateString(
-        `translate(${dx}, ${dy})`,
-        'translate(0, 0)',
-      );
+      const interpolateX = interpolateNumber(dx, 0);
+      const interpolateY = interpolateNumber(dy, 0);
 
       let start = null;
       const updateTransform = timestamp => {
         if (!start) start = timestamp;
         const elapsed = timestamp - start;
         console.log(elapsed);
+        const t = elapsed / ANIM_DURATION;
         if (elapsed < ANIM_DURATION) {
-          this.setState({ translate: interpolator(elapsed / ANIM_DURATION) });
+          this.setState({ translateX: interpolateX(t), translateY: interpolateY(t) });
           window.requestAnimationFrame(updateTransform);
         } else {
-          this.setState({ translate: interpolator(1) });
+          this.setState({ translateX: 0, translateY: 0 });
         }
       };
 
@@ -41,10 +41,11 @@ const animate = WrappedComponent => {
     }
 
     render() {
+      const { translateX, translateY } = this.state;
       return (
         <WrappedComponent
           dims={this.props.dims}
-          transform={this.state.translate}
+          transform={`translate(${translateX}, ${translateY})`}
         />
       );
     }
