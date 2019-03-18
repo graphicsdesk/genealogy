@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import animate from './animate';
 import { clipId } from '../../constants';
 
