@@ -1,4 +1,5 @@
 import React from 'react';
+import fadeMovement from './fadeMovement';
 import { clipId, imageId } from '../../constants';
 
 const ImageClip = ({ graphicId }) => (
