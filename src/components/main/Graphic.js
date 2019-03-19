@@ -27,10 +27,10 @@ const styles = {
     textAlign: 'center',
     color: '#222',
     padding: '1rem',
-    fontSize: '1.2rem', //23px
+    fontSize: '1.1rem',
     fontFamily: 'Merriweather',
     fontWeight: 400,
-    lineHeight: '2rem', //30px
+    lineHeight: '1.9rem',
   },
 };
 
