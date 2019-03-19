@@ -34,12 +34,24 @@ const styles = {
   },
 };
 
+const DEFAULT_CLIP = { clipLabel: '', x: 0, y: 0, w: 0, h: 0 };
+
 class Graphic extends PureComponent {
   state = {
-    clip: { clipLabel: '', x: 0, y: 0, w: 0, h: 0 },
+    clip: DEFAULT_CLIP,
   };
 
-  onStepEnter = ({ data: { text, ...clip } }) => {
+  onStepEnter = ({ direction, data: index }) => {
+    let shouldUseDefault = null;
+    if (direction === 'up') {
+      if (index > 0) {
+        index--;
+      } else {
+        shouldUseDefault = DEFAULT_CLIP;
+      }
+    }
+    const data = shouldUseDefault || this.props.steps[index];
+    const { text, ...clip } = data;
     if (!areEqualShallow(this.state.clip, clip)) {
       this.setState({ clip });
     }
@@ -56,10 +68,10 @@ class Graphic extends PureComponent {
         </figure>
         <article className={classes.steps}>
           <Scrollama onStepEnter={this.onStepEnter}>
-            {steps.map(data => (
-              <Step key={data.text} data={data}>
+            {steps.map(({ text }, index) => (
+              <Step key={text} data={index}>
                 <div className={classes.step}>
-                  <p className={classes.stepText}>{data.text}</p>
+                  <p className={classes.stepText}>{text}</p>
                 </div>
               </Step>
             ))}
