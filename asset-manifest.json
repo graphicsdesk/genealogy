@@ -1,0 +1,13 @@
+{
+  "main.js": "/genealogy/static/js/main.44cdee03.chunk.js",
+  "main.js.map": "/genealogy/static/js/main.44cdee03.chunk.js.map",
+  "runtime~main.js": "/genealogy/static/js/runtime~main.ac4a6a33.js",
+  "runtime~main.js.map": "/genealogy/static/js/runtime~main.ac4a6a33.js.map",
+  "static/js/2.d1d1932c.chunk.js": "/genealogy/static/js/2.d1d1932c.chunk.js",
+  "static/js/2.d1d1932c.chunk.js.map": "/genealogy/static/js/2.d1d1932c.chunk.js.map",
+  "index.html": "/genealogy/index.html",
+  "precache-manifest.19ef0d48eed331896a0fa46a21d5d524.js": "/genealogy/precache-manifest.19ef0d48eed331896a0fa46a21d5d524.js",
+  "service-worker.js": "/genealogy/service-worker.js",
+  "static/media/ancestral-map.jpg": "/genealogy/static/media/ancestral-map.d04420a2.jpg",
+  "static/media/portraits.jpg": "/genealogy/static/media/portraits.c29e8623.jpg"
+}
