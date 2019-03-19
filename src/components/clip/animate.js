@@ -15,31 +15,39 @@ const animate = WrappedComponent => {
     componentDidUpdate(prevProps) {
       if (areEqualShallow(prevProps.dims, this.props.dims)) return;
 
-      const { dims: { x: pX, y: pY } } = prevProps;
-      const { dims: { x, y } } = this.props;
+      const {
+        dims: { x: pX, y: pY, width: pWidth = 0, height: pHeight = 0 },
+      } = prevProps;
+      const { dims: { x, y, width = 0, height = 0 } } = this.props;
 
       const interpolateX = interpolateNumber(pX, x);
       const interpolateY = interpolateNumber(pY, y);
+      const interpolateW = interpolateNumber(pWidth, width);
+      const interpolateH = interpolateNumber(pHeight, height);
 
       let start = null;
-      const updateTransform = timestamp => {
+      const updateDims = timestamp => {
         const elapsed = timestamp - (start || (start = timestamp));
         if (elapsed < ANIM_DURATION) {
           const t = elapsed / ANIM_DURATION;
+          console.log(t);
           this.setState({
             x: interpolateX(t),
             y: interpolateY(t),
+            width: interpolateW(t),
+            height: interpolateH(t),
           });
-          window.requestAnimationFrame(updateTransform);
+          window.requestAnimationFrame(updateDims);
         } else {
-          this.setState({ x, y });
+          this.setState({ x, y, width, height });
         }
       };
 
-      window.requestAnimationFrame(updateTransform);
+      window.requestAnimationFrame(updateDims);
     }
 
     render() {
+      console.log('w', this.state.width);
       return (
         <WrappedComponent
           {...this.props}

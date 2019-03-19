@@ -19,7 +19,12 @@ const styles = {
   },
 };
 
-const Label = ({ classes, text, dims, transform }) => (
+const Label = ({
+  classes,
+  text,
+  dims: { width, height, ...dims },
+  transform,
+}) => (
   <Fragment>
     <text className={classes.backText} {...dims}>
       {text}

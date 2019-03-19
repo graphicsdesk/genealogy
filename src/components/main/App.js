@@ -17,6 +17,7 @@ const steps = archieml
 
 const styles = {
   App: {
+    marginTop: '70vh',
     marginBottom: '70vh',
   },
 };
