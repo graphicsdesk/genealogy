@@ -5,6 +5,9 @@ import Record from './Record';
 import { areEqualShallow } from '../../utils';
 
 const styles = {
+  Graphic: {
+    marginBottom: '70vh',
+  },
   sticky: {
     position: 'sticky',
     // position: '-webkit-sticky',
