@@ -10,10 +10,10 @@ const styles = {
   },
   sticky: {
     position: 'sticky',
-    // position: '-webkit-sticky',
     top: 0,
   },
   steps: {
+    WebkitTransform: 'translate3d(0, 0, 0)', // https://stackoverflow.com/questions/16033416/while-scrolling-on-an-ios-device-the-z-index-of-elements-isnt-working
     padding: '0 5vw 130vh 5vw',
   },
   step: {
