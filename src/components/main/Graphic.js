@@ -63,7 +63,7 @@ class Graphic extends PureComponent {
           />
         </figure>
         <article className={classes.steps}>
-          <Scrollama onStepEnter={this.onStepEnter}>
+          <Scrollama onStepEnter={this.onStepEnter} offset={0.33}>
             {steps.map(data => (
               <Step key={data.text} data={data}>
                 <div className={classes.step}>
