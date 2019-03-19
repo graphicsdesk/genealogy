@@ -30,7 +30,6 @@ const animate = WrappedComponent => {
         const elapsed = timestamp - (start || (start = timestamp));
         if (elapsed < ANIM_DURATION) {
           const t = elapsed / ANIM_DURATION;
-          console.log(t);
           this.setState({
             x: interpolateX(t),
             y: interpolateY(t),
@@ -47,7 +46,6 @@ const animate = WrappedComponent => {
     }
 
     render() {
-      console.log('w', this.state.width);
       return (
         <WrappedComponent
           {...this.props}
