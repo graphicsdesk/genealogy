@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Image = ({ dims, href, leftSide = false }) => {
+const IMGDIR_PATH = '/img';
+
+const Image = ({ dims, name, leftSide = false }) => {
   const { leftX, rightX, y, width, height } = dims;
 
   return (
@@ -9,7 +11,7 @@ const Image = ({ dims, href, leftSide = false }) => {
       y={y}
       width={width}
       height={height}
-      xlinkHref={href}
+      xlinkHref={IMGDIR_PATH + '/' + name}
     />
   );
 };

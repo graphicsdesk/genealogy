@@ -4,7 +4,7 @@ import { ShadowFilter } from '../svg';
 import { Image, ImageVeil } from '../image';
 import { ClipPath, ImageClip, ClipLabel } from '../clip';
 
-import { imagesId, shadowId } from '../../constants';
+import { imageId, shadowId } from '../../constants';
 import { calculateClipDims } from '../../utils';
 
 const ASPECT_RATIO = 1504 / 1024;
@@ -52,7 +52,12 @@ class Record extends Component {
       imgWidth,
       imgHeight,
     } = this.state;
-    const { clip: { clipLabel, ...clipFracs } } = this.props;
+    const {
+      graphicId,
+      leftImg,
+      rightImg,
+      clip: { clipLabel, ...clipFracs },
+    } = this.props;
 
     const imgDims = {
       leftX: leftImgX,
@@ -67,16 +72,16 @@ class Record extends Component {
       <svg width={document.body.clientWidth} height={height}>
         <ShadowFilter />
         <defs>
-          <ClipPath dims={clipDims} />
+          <ClipPath dims={clipDims} graphicId={graphicId} />
         </defs>
 
-        <g id={imagesId} style={{ filter: `url(#${shadowId})` }}>
-          <Image dims={imgDims} href="/img/ancestral-map.jpg" leftSide />
-          <Image dims={imgDims} href="/img/portraits.jpg" />
+        <g id={imageId(graphicId)} style={{ filter: `url(#${shadowId})` }}>
+          <Image dims={imgDims} name={leftImg} leftSide />
+          <Image dims={imgDims} name={rightImg} />
         </g>
         <ImageVeil dims={imgDims} />
 
-        <ImageClip />
+        <ImageClip graphicId={graphicId} />
         <ClipLabel clipDims={clipDims} text={clipLabel} />
       </svg>
     );

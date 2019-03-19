@@ -10,7 +10,8 @@
     "react-dom": "^16.8.4",
     "react-jss": "^8.6.1",
     "react-scripts": "2.1.8",
-    "react-scrollama": "^0.5.0"
+    "react-scrollama": "^0.5.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

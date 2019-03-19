@@ -47,12 +47,17 @@ class Graphic extends PureComponent {
 
   render() {
     const { clip } = this.state;
-    const { classes, steps } = this.props;
+    const { classes, id, leftImg, rightImg, steps } = this.props;
 
     return (
       <div className={classes.Graphic}>
         <figure className={classes.sticky}>
-          <Record clip={clip} />
+          <Record
+            graphicId={id}
+            leftImg={leftImg}
+            rightImg={rightImg}
+            clip={clip}
+          />
         </figure>
         <article className={classes.steps}>
           <Scrollama onStepEnter={this.onStepEnter}>

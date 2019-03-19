@@ -1,8 +1,11 @@
 import React from 'react';
-import { clipId, imagesId } from '../../constants';
+import { clipId, imageId } from '../../constants';
 
-const ImageClip = () => (
-  <use xlinkHref={`#${imagesId}`} clipPath={`url(#${clipId})`} />
+const ImageClip = ({ graphicId }) => (
+  <use
+    xlinkHref={`#${imageId(graphicId)}`}
+    clipPath={`url(#${clipId(graphicId)})`}
+  />
 );
 
 export default ImageClip;
