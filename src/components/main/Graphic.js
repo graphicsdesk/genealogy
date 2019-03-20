@@ -6,7 +6,7 @@ import { areEqualShallow } from '../../utils';
 
 const styles = {
   Graphic: {
-    marginBottom: '70vh',
+    marginBottom: '5vh',
   },
   sticky: {
     position: 'sticky',

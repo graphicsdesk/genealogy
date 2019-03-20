@@ -19,7 +19,7 @@ const processSteps = steps =>
 
 const styles = {
   App: {
-    marginTop: '70vh',
+    margin: '70vh 0',
   },
 };
 
