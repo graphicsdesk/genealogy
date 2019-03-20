@@ -28,32 +28,29 @@ const styles = {
 const fadeMovement = WrappedComponent => {
   class FadeComponent extends Component {
     state = {
-      dims: {
-        x: 0,
-        y: 0,
-      },
       transitioning: false,
+      dims: this.props.dims,
+      label: this.props.label,
     };
 
     componentDidUpdate(prevProps) {
       if (areEqualShallow(prevProps.dims, this.props.dims)) return;
 
-      const { dims: { x: pX, y: pY } } = prevProps;
-      const { dims: { x, y } } = this.props;
+      const { dims: prevDims, label: prevLabel } = prevProps;
+      const { dims, label } = this.props;
 
-      this.setState({ transitioning: true });
+      this.setState({ transitioning: true, dims: prevDims, label: prevLabel });
       d3Timeout(() => {
-        this.setState({ transitioning: false });
-      }, animationDuration);
+        this.setState({ transitioning: false, dims, label });
+      }, prevDims.width + prevDims.height > 0 ? animationDuration : 0);
     }
 
     render() {
-      const { transitioning, dims } = this.state;
+      const { transitioning } = this.state;
       const { classes } = this.props;
-      //return <WrappedComponent {...this.props} dims={this.props.dims} />;
       return (
         <g className={transitioning ? classes.hide : classes.show}>
-          <WrappedComponent {...this.props} />
+          <WrappedComponent {...this.props} {...this.state} />
         </g>
       );
     }
@@ -63,8 +60,8 @@ const fadeMovement = WrappedComponent => {
     dims: PropTypes.exact({
       x: PropTypes.number.isRequired,
       y: PropTypes.number.isRequired,
-      width: PropTypes.number,
-      height: PropTypes.number,
+      width: PropTypes.number.isRequired,
+      height: PropTypes.number.isRequired,
     }).isRequired,
   };
 

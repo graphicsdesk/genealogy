@@ -1,3 +1,13 @@
+import uuidv4 from 'uuid/v4';
+
+export const createIdStore = () => {
+  const ids = {};
+  return graphicId => {
+    if (!(graphicId in ids)) return (ids[graphicId] = uuidv4());
+    return ids[graphicId];
+  };
+};
+
 export const calculateClipDims = (imgDims, clipFracs) => {
   const { leftX, y, width, height } = imgDims;
   const { x: fracX, y: fracY, w: fracW, h: fracH } = clipFracs;
