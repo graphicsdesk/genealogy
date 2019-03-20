@@ -1,12 +1,15 @@
-import React from 'react';
-import fadeMovement from './fadeMovement';
+import React, { Fragment } from 'react';
+import ClipLabel from './ClipLabel';
 import { clipId, imageId } from '../../constants';
 
-const ImageClip = ({ graphicId }) => (
-  <use
-    xlinkHref={`#${imageId(graphicId)}`}
-    clipPath={`url(#${clipId(graphicId)})`}
-  />
+const ImageClip = ({ graphicId, dims, label }) => (
+  <Fragment>
+    <use
+      xlinkHref={`#${imageId(graphicId)}`}
+      clipPath={`url(#${clipId(graphicId)})`}
+    />
+    <ClipLabel dims={dims} text={label} />
+  </Fragment>
 );
 
 export default ImageClip;

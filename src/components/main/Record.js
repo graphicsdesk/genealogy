@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { ShadowFilter } from '../svg';
 import { Image, ImageVeil } from '../image';
-import { ClipPath, ImageClip, ClipLabel } from '../clip';
+import { ClipPath, ImageClip } from '../clip';
 
 import { imageId, shadowId } from '../../constants';
 import { calculateClipDims } from '../../utils';
@@ -81,8 +81,7 @@ class Record extends Component {
         </g>
         <ImageVeil dims={imgDims} />
 
-        <ImageClip graphicId={graphicId} />
-        <ClipLabel clipDims={clipDims} text={clipLabel} />
+        <ImageClip graphicId={graphicId} dims={clipDims} label={clipLabel} />
       </svg>
     );
   }

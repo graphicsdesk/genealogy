@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { timeout as d3Timeout} from 'd3-timer';
+import { timeout as d3Timeout } from 'd3-timer';
 import { areEqualShallow } from '../../utils';
 
 const animationDuration = 300;
@@ -38,9 +38,7 @@ const fadeMovement = WrappedComponent => {
     componentDidUpdate(prevProps) {
       if (areEqualShallow(prevProps.dims, this.props.dims)) return;
 
-      const {
-        dims: { x: pX, y: pY },
-      } = prevProps;
+      const { dims: { x: pX, y: pY } } = prevProps;
       const { dims: { x, y } } = this.props;
 
       this.setState({ transitioning: true });
@@ -55,9 +53,7 @@ const fadeMovement = WrappedComponent => {
       //return <WrappedComponent {...this.props} dims={this.props.dims} />;
       return (
         <g className={transitioning ? classes.hide : classes.show}>
-          <WrappedComponent
-            {...this.props}
-          />
+          <WrappedComponent {...this.props} />
         </g>
       );
     }
