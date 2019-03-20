@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { timeout as d3Timeout } from 'd3-timer';
 import { areEqualShallow } from '../../utils';
 
 const animationDuration = 300;
@@ -40,7 +39,7 @@ const fadeMovement = WrappedComponent => {
       const { dims, label } = this.props;
 
       this.setState({ transitioning: true, dims: prevDims, label: prevLabel });
-      d3Timeout(() => {
+      setTimeout(() => {
         this.setState({ transitioning: false, dims, label });
       }, prevDims.width + prevDims.height > 0 ? animationDuration : 0);
     }
