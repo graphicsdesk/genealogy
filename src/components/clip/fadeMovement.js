@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import { areEqualShallow } from '../../utils';
 
-const animationDuration = 300;
+const animationDuration = 500;
 
 const styles = {
   show: {
@@ -27,21 +27,33 @@ const styles = {
 const fadeMovement = WrappedComponent => {
   class FadeComponent extends Component {
     state = {
-      transitioning: false,
+      transitioning: true,
       dims: this.props.dims,
       label: this.props.label,
     };
 
     componentDidUpdate(prevProps) {
-      if (areEqualShallow(prevProps.dims, this.props.dims)) return;
-
       const { dims: prevDims, label: prevLabel } = prevProps;
       const { dims, label } = this.props;
 
+      if (
+        areEqualShallow(prevProps.dims, this.props.dims) ||
+        prevLabel === label
+      )
+        return;
+
+      // If component has never been shown before, no need to fade out
+      if (prevDims.width + prevDims.height === 0) {
+        this.setState({ transitioning: false, dims, label });
+        return;
+      }
+
+      console.log('entering transition');
       this.setState({ transitioning: true, dims: prevDims, label: prevLabel });
       setTimeout(() => {
+        console.log('exiting transition');
         this.setState({ transitioning: false, dims, label });
-      }, prevDims.width + prevDims.height > 0 ? animationDuration : 0);
+      }, animationDuration);
     }
 
     render() {
