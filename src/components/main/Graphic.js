@@ -39,7 +39,7 @@ const styles = {
 
 class Graphic extends PureComponent {
   state = {
-    clip: { clipLabel: '', x: 0, y: 0, w: 0, h: 0 },
+    clip: { clipLabel: '', x: 0, y: 0, w: 0.1, h: 0.1 },
   };
 
   onStepEnter = ({ data: { text, ...clip } }) => {

@@ -4,10 +4,10 @@ import { clipId } from '../../constants';
 
 const CORNER_RADIUS = 3;
 
-const ClipPath = ({ graphicId, dims }) => (
+const ClipPath = React.forwardRef(({ graphicId, dims }, ref) => (
   <clipPath id={clipId(graphicId)}>
-    <rect {...dims} rx={CORNER_RADIUS} ry={CORNER_RADIUS} />
+    <rect ref={ref} {...dims} rx={CORNER_RADIUS} ry={CORNER_RADIUS} />
   </clipPath>
-);
+));
 
 export default animate(ClipPath);

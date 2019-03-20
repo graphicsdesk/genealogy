@@ -3,53 +3,47 @@ import PropTypes from 'prop-types';
 import { interpolateNumber } from 'd3-interpolate';
 import { areEqualShallow } from '../../utils';
 
-const ANIM_DURATION = 300;
+const ANIM_DURATION = 3000;
 
 const animate = WrappedComponent => {
   class AnimatedComponent extends Component {
-    state = {
-      x: 0,
-      y: 0,
-    };
+    ref = React.createRef();
 
     componentDidUpdate(prevProps) {
       if (areEqualShallow(prevProps.dims, this.props.dims)) return;
 
-      const {
-        dims: { x: pX, y: pY, width: pWidth = 0, height: pHeight = 0 },
-      } = prevProps;
-      const { dims: { x, y, width = 0, height = 0 } } = this.props;
+      const { dims: { x: pX, y: pY } } = prevProps;
+      const { dims: { x, y } } = this.props;
 
-      const interpolateX = interpolateNumber(pX, x);
-      const interpolateY = interpolateNumber(pY, y);
-      const interpolateW = interpolateNumber(pWidth, width);
-      const interpolateH = interpolateNumber(pHeight, height);
+      const interpolateX = interpolateNumber(pX - x, 0);
+      const interpolateY = interpolateNumber(pY - y, 0);
 
       let start = null;
-      const updateDims = timestamp => {
-        const elapsed = timestamp - (start || (start = timestamp));
+      const updateTransform = time => {
+        const elapsed = time - (start || (start = time));
         if (elapsed < ANIM_DURATION) {
           const t = elapsed / ANIM_DURATION;
-          this.setState({
-            x: interpolateX(t),
-            y: interpolateY(t),
-            width: interpolateW(t),
-            height: interpolateH(t),
-          });
-          window.requestAnimationFrame(updateDims);
+          typeof this.ref.current.setAttribute === 'function' &&
+            this.ref.current.setAttribute(
+              'transform',
+              `translate(${interpolateX(t)}, ${interpolateY(t)})`,
+            );
+          window.requestAnimationFrame(updateTransform);
         } else {
-          this.setState({ x, y, width, height });
+          typeof this.ref.current.setAttribute === 'function' &&
+            this.ref.current.setAttribute('transform', 'translate(0, 0)');
         }
       };
 
-      window.requestAnimationFrame(updateDims);
+      window.requestAnimationFrame(updateTransform);
     }
 
     render() {
       return (
         <WrappedComponent
+          ref={this.ref}
           {...this.props}
-          dims={{ ...this.props.dims, ...this.state }}
+          dims={{ ...this.props.dims }}
         />
       );
     }
