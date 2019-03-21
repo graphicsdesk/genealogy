@@ -28,25 +28,25 @@ rightImg: ancestral-map.jpg
 [.steps]
 
 text: They spell out instructions from the family about which professions are preferred by the family line.
-x: 1.13
-y: 0.67
-w: 0.27
-h: 0.26
-clipLabel: Instructions
+x: 1.26
+y: 0.32
+w: 0.48
+h: 0.58
+clipLabel: Treasure map
 
 text: Or they might provide a detailed account of the heirlooms within your family hundreds of years ago\u2026
-x: 1
-y: 0.12
-w: 1
-h: 0.52
+x: 1.35
+y: 0.14
+w: 0.45
+h: 0.19
 clipLabel: Texts
 
 text: \u2026down to the minute decorations on a pair of emerald earrings.
-x: 0.3
+x: 1.36
 y: 0.14
-w: 0.9
-h: 0.3
-clipLabel: Emerald earrings
+w: 0.24
+h: 0.05
+clipLabel:
 
 []
 
