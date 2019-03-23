@@ -105,16 +105,16 @@ class Record extends Component {
     };
     const clipDims = calculateClipDims(imgDims, clipFracs);
 
-    let shiftLeft = 0;
+    let translateX = 0;
     if (width <= 512) {
-      shiftLeft = margin.left - clipDims.x;
+      translateX = Math.max(margin.left - clipDims.x, -imgWidth / 2);
     }
 
     return (
       <svg width={width} height={height}>
         <g
           className={classes.container}
-          style={{ transform: `translate(${shiftLeft}px, 0px)` }}
+          style={{ transform: `translate(${translateX}px, 0px)` }}
         >
           <ShadowFilter />
 

@@ -6,6 +6,13 @@ rightImg: portraits.jpg
 
 [.steps]
 
+text: Testing
+x: 0.1
+y: 0.3
+w: 0.35
+h: 0.3
+clipLabel: testing
+
 text: These records (known as jia pu) held poems that made me feel the warmth of the sun after a spring rain in the high mountains centuries ago;
 x: 1.13
 y: 0.67
