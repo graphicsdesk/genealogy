@@ -20,7 +20,7 @@ export const calculateClipDims = (imgDims, clipFracs) => {
 };
 
 // Source: https://gist.github.com/nmsdvid/8807205#gistcomment-2548862
-const debounceEvent = (callback, time) => {
+export const debounceEvent = (callback, time) => {
   let interval;
   return (...args) => {
     clearTimeout(interval);

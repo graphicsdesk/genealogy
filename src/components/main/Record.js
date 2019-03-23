@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
+import injectSheet from 'react-jss';
+import { imageId, shadowId } from '../../constants';
+import { debounceEvent, calculateClipDims } from '../../utils';
 
 import { ShadowFilter } from '../svg';
 import { Image, ImageVeil } from '../image';
 import { ImageClip } from '../clip';
-
-import { imageId, shadowId } from '../../constants';
-import { debounceEvent, calculateClipDims } from '../../utils';
 
 const ASPECT_RATIO = 1504 / 1024;
 const DEBOUNCE_TIME = 250;
 
 const margin = { top: 20, right: 20, bottom: 24, left: 20 };
 
-const debounce = (callback, time) => {
-  let interval;
-  return (...args) => {
-    clearTimeout(interval);
-    interval = setTimeout(() => {
-      interval = null;
-      callback(...args);
-    }, time);
-  };
+const styles = {
+  container: {
+    transitionDuration: '0.6s',
+  },
 };
 
 class Record extends Component {
@@ -39,7 +34,10 @@ class Record extends Component {
       // hacky way to wait for document.body.clientWidth to account for scrollbar
       this.updateDimensions();
 
-      this.debouncedUpdateDimensions = debounce(this.updateDimensions, DEBOUNCE_TIME);
+      this.debouncedUpdateDimensions = debounceEvent(
+        this.updateDimensions,
+        DEBOUNCE_TIME,
+      );
       window.addEventListener('resize', this.debouncedUpdateDimensions);
     }, 0);
 
@@ -52,21 +50,26 @@ class Record extends Component {
   }
 
   updateDimensions = () => {
-    const width = document.body.clientWidth;
-    const height = window.innerHeight;
+    let width = document.body.clientWidth;
+    let height = window.innerHeight;
 
     let imgHeight = height - margin.top - margin.bottom;
     let imgWidth = imgHeight / ASPECT_RATIO;
-
     let imgY = margin.top;
 
-    if (imgWidth * 2 > width) {
-      imgWidth = (width - margin.left - margin.right) / 2;
-      imgHeight = imgWidth * ASPECT_RATIO;
-      imgY += (height - margin.top - margin.bottom - imgHeight) / 2;
+    if (width > 512) {
+      if (imgWidth * 2 > width) {
+        imgWidth = (width - margin.left - margin.right) / 2;
+      }
+    } else {
+      imgWidth = width - margin.left - margin.right;
     }
+    imgHeight = imgWidth * ASPECT_RATIO;
+    imgY += (height - margin.top - margin.bottom - imgHeight) / 2;
 
     this.setState({
+      width,
+      height,
       leftImgX: width / 2 - imgWidth,
       rightImgX: width / 2,
       imgY,
@@ -77,6 +80,7 @@ class Record extends Component {
 
   render() {
     const {
+      width,
       height,
       leftImgX,
       rightImgX,
@@ -85,6 +89,7 @@ class Record extends Component {
       imgHeight,
     } = this.state;
     const {
+      classes,
       graphicId,
       leftImg,
       rightImg,
@@ -99,22 +104,31 @@ class Record extends Component {
       height: imgHeight,
     };
     const clipDims = calculateClipDims(imgDims, clipFracs);
-    console.log('rerendering', clipDims.x);
+
+    let shiftLeft = 0;
+    if (width <= 512) {
+      shiftLeft = margin.left - clipDims.x;
+    }
 
     return (
-      <svg width={document.body.clientWidth} height={height}>
-        <ShadowFilter />
+      <svg width={width} height={height}>
+        <g
+          className={classes.container}
+          transform={`translate(${shiftLeft}, 0)`}
+        >
+          <ShadowFilter />
 
-        <g id={imageId(graphicId)} style={{ filter: `url(#${shadowId})` }}>
-          <Image dims={imgDims} name={leftImg} leftSide />
-          <Image dims={imgDims} name={rightImg} />
+          <g id={imageId(graphicId)} style={{ filter: `url(#${shadowId})` }}>
+            <Image dims={imgDims} name={leftImg} leftSide />
+            <Image dims={imgDims} name={rightImg} />
+          </g>
+          <ImageVeil dims={imgDims} />
+
+          <ImageClip graphicId={graphicId} dims={clipDims} label={clipLabel} />
         </g>
-        <ImageVeil dims={imgDims} />
-
-        <ImageClip graphicId={graphicId} dims={clipDims} label={clipLabel} />
       </svg>
     );
   }
 }
 
-export default Record;
+export default injectSheet(styles)(Record);
