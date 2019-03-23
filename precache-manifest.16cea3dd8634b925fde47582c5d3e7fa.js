@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/genealogy/static/js/runtime~main.ac4a6a33.js"
   },
   {
-    "revision": "596578a02f877a12f86a",
-    "url": "/genealogy/static/js/main.2d409365.chunk.js"
+    "revision": "9e8efc0d57574e217c81",
+    "url": "/genealogy/static/js/main.470270ce.chunk.js"
   },
   {
     "revision": "fa55bb8dde8e368fbca1",
     "url": "/genealogy/static/js/2.60df28ba.chunk.js"
   },
   {
-    "revision": "811c1dfa2785ce520f9cee26224999ad",
+    "revision": "54683f6044ef377c9913f33a1f2e6430",
     "url": "/genealogy/index.html"
   }
 ];
