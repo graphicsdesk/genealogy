@@ -19,6 +19,18 @@ export const calculateClipDims = (imgDims, clipFracs) => {
   };
 };
 
+// Source: https://gist.github.com/nmsdvid/8807205#gistcomment-2548862
+const debounceEvent = (callback, time) => {
+  let interval;
+  return (...args) => {
+    clearTimeout(interval);
+    interval = setTimeout(() => {
+      interval = null;
+      callback(...args);
+    }, time);
+  };
+};
+
 export const areEqualShallow = (a, b) =>
   Object.keys(a).length === Object.keys(b).length &&
   Object.keys(a).every(key => b.hasOwnProperty(key) && a[key] === b[key]);

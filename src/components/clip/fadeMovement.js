@@ -36,11 +36,14 @@ const fadeMovement = WrappedComponent => {
       const { dims: prevDims, label: prevLabel } = prevProps;
       const { dims, label } = this.props;
 
-      if (
-        areEqualShallow(prevProps.dims, this.props.dims) ||
-        prevLabel === label
-      )
+      if (areEqualShallow(prevProps.dims, this.props.dims)) {
         return;
+      }
+      // If dims changed but same label, we can assume the page was resized
+      if (prevLabel === label) {
+        this.setState({ dims });
+        return;
+      }
 
       // If component has never been shown before, no need to fade out
       if (prevDims.width + prevDims.height === 0) {
@@ -48,10 +51,8 @@ const fadeMovement = WrappedComponent => {
         return;
       }
 
-      console.log('entering transition');
       this.setState({ transitioning: true, dims: prevDims, label: prevLabel });
       setTimeout(() => {
-        console.log('exiting transition');
         this.setState({ transitioning: false, dims, label });
       }, animationDuration);
     }

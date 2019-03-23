@@ -5,10 +5,23 @@ import { Image, ImageVeil } from '../image';
 import { ImageClip } from '../clip';
 
 import { imageId, shadowId } from '../../constants';
-import { calculateClipDims } from '../../utils';
+import { debounceEvent, calculateClipDims } from '../../utils';
 
 const ASPECT_RATIO = 1504 / 1024;
+const DEBOUNCE_TIME = 250;
+
 const margin = { top: 20, right: 20, bottom: 24, left: 20 };
+
+const debounce = (callback, time) => {
+  let interval;
+  return (...args) => {
+    clearTimeout(interval);
+    interval = setTimeout(() => {
+      interval = null;
+      callback(...args);
+    }, time);
+  };
+};
 
 class Record extends Component {
   state = {
@@ -25,15 +38,24 @@ class Record extends Component {
     setTimeout(() => {
       // hacky way to wait for document.body.clientWidth to account for scrollbar
       this.updateDimensions();
+
+      this.debouncedUpdateDimensions = debounce(this.updateDimensions, DEBOUNCE_TIME);
+      window.addEventListener('resize', this.debouncedUpdateDimensions);
     }, 0);
 
     const height = window.innerHeight;
     this.setState({ height, imgHeight: height - margin.top - margin.bottom });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.debouncedUpdateDimensions);
+  }
+
   updateDimensions = () => {
     const width = document.body.clientWidth;
-    let { imgHeight, height } = this.state;
+    const height = window.innerHeight;
+
+    let imgHeight = height - margin.top - margin.bottom;
     let imgWidth = imgHeight / ASPECT_RATIO;
 
     let imgY = margin.top;
@@ -77,6 +99,7 @@ class Record extends Component {
       height: imgHeight,
     };
     const clipDims = calculateClipDims(imgDims, clipFracs);
+    console.log('rerendering', clipDims.x);
 
     return (
       <svg width={document.body.clientWidth} height={height}>

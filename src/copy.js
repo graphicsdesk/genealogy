@@ -14,9 +14,9 @@ h: 0.26
 clipLabel: Elegant poem
 
 text: They carry proud claims to being descendents of emperors and men of impeccable name and character.
-x: 1
+x: 1.02
 y: 0.12
-w: 1
+w: 0.96
 h: 0.52
 clipLabel: Men wearing vegetables
 
