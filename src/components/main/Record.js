@@ -33,13 +33,23 @@ class Record extends Component {
 
   updateDimensions = () => {
     const width = document.body.clientWidth;
-    const imgWidth = this.state.imgHeight / ASPECT_RATIO;
+    let { imgHeight, height } = this.state;
+    let imgWidth = imgHeight / ASPECT_RATIO;
+
+    let imgY = margin.top;
+
+    if (imgWidth * 2 > width) {
+      imgWidth = (width - margin.left - margin.right) / 2;
+      imgHeight = imgWidth * ASPECT_RATIO;
+      imgY += (height - margin.top - margin.bottom - imgHeight) / 2;
+    }
 
     this.setState({
       leftImgX: width / 2 - imgWidth,
       rightImgX: width / 2,
-      imgY: margin.top,
+      imgY,
       imgWidth,
+      imgHeight,
     });
   };
 
