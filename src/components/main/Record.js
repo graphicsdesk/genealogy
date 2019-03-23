@@ -114,7 +114,7 @@ class Record extends Component {
       <svg width={width} height={height}>
         <g
           className={classes.container}
-          transform={`translate(${shiftLeft}, 0)`}
+          style={{ transform: `translate(${shiftLeft}px, 0px)` }}
         >
           <ShadowFilter />
 
