@@ -7,7 +7,9 @@ const ANIM_DURATION = 3000;
 
 const animate = WrappedComponent => {
   class AnimatedComponent extends Component {
-    ref = React.createRef();
+    state = {
+      style: {},
+    };
 
     componentDidUpdate(prevProps) {
       if (areEqualShallow(prevProps.dims, this.props.dims)) return;
@@ -23,15 +25,16 @@ const animate = WrappedComponent => {
         const elapsed = time - (start || (start = time));
         if (elapsed < ANIM_DURATION) {
           const t = elapsed / ANIM_DURATION;
-          typeof this.ref.current.setAttribute === 'function' &&
-            this.ref.current.setAttribute(
-              'transform',
-              `translate(${interpolateX(t)}, ${interpolateY(t)})`,
-            );
+          this.setState({
+            style: {
+              transform: `translate(${interpolateX(t)}px, ${interpolateY(
+                t,
+              )}px)`,
+            },
+          });
           window.requestAnimationFrame(updateTransform);
         } else {
-          typeof this.ref.current.setAttribute === 'function' &&
-            this.ref.current.setAttribute('transform', 'translate(0, 0)');
+          this.setState({ style: { transform: `translate(0px, 0px)` } });
         }
       };
 
@@ -39,13 +42,8 @@ const animate = WrappedComponent => {
     }
 
     render() {
-      return (
-        <WrappedComponent
-          ref={this.ref}
-          {...this.props}
-          dims={{ ...this.props.dims }}
-        />
-      );
+      const { style } = this.state;
+      return <WrappedComponent {...this.props} style={style} />;
     }
   }
 
