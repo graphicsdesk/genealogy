@@ -4,6 +4,10 @@ import injectSheet from 'react-jss';
 import Record from './Record';
 import { areEqualShallow } from '../../utils';
 
+const stepStyles = {
+  marginBottom: '70vh',
+  display: 'flex',
+};
 const styles = {
   Graphic: {
     marginBottom: '5vh',
@@ -15,18 +19,24 @@ const styles = {
   steps: {
     WebkitTransform: 'translate3d(0, 0, 0)', // https://stackoverflow.com/questions/16033416/while-scrolling-on-an-ios-device-the-z-index-of-elements-isnt-working
     padding: '0 5vw 130vh 5vw',
-  },
-  step: {
-    position: 'relative',
-    backgroundColor: '#fff',
-    boxShadow: '0 5px 15px 0 rgba(0,0,0,0.41)',
-    margin: '0 auto 70vh auto',
-    maxWidth: '500px',
-    '&:last-child': {
+
+    // Remove margin bottom on last className.step
+    '& > div > div:last-child': {
       marginBottom: 0,
     },
   },
+  leftStep: {
+    ...stepStyles,
+    justifyContent: 'flex-start',
+  },
+  rightStep: {
+    ...stepStyles,
+    justifyContent: 'flex-end',
+  },
   stepText: {
+    backgroundColor: '#fff',
+    boxShadow: '0 5px 15px 0 rgba(0,0,0,0.41)',
+    maxWidth: '500px',
     textAlign: 'center',
     color: '#222',
     padding: '1rem',
@@ -66,8 +76,13 @@ class Graphic extends PureComponent {
           <Scrollama onStepEnter={this.onStepEnter}>
             {steps.map(data => (
               <Step key={data.text} data={data}>
-                <div className={classes.step}>
-                  <p className={classes.stepText}>{data.text}</p>
+                <div
+                  className={data.x < 1 ? classes.rightStep : classes.leftStep}
+                >
+                  <p
+                    className={classes.stepText}
+                    dangerouslySetInnerHTML={{ __html: data.text }}
+                  />
                 </div>
               </Step>
             ))}
