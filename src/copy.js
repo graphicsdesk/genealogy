@@ -12,11 +12,18 @@ y: 0.01
 w: 0.98
 h: 0.98
 
-text: The highlighted poem is entitled, \u201cWhile staying in the Pei Household I reminisce about an elder of the family\u201d, by Mai Dai.
-x: 0.4
-y: 0.01
-w: 0.25
-h: 0.98
+text: The highlighted poem is entitled, \u201cWhile staying in the Pei Household I reminisce about an elder of the family\u201d, by Ma Dai.
+x: 0.38
+y: 0.04
+w: 0.2
+h: 0.90
+clipLabel:
+
+text: Create visuals with the translation of the poem!
+x: 0.38
+y: 0.04
+w: 0.2
+h: 0.90
 clipLabel:
 
 text: They could carry proud accounts of noteworthy women in the family.
@@ -41,10 +48,10 @@ h: 0.58
 clipLabel:
 
 text: And they might provide portraits of the noblemen from whom the family descends.
-x: 1.02
-y: 0.12
-w: 0.96
-h: 0.52
+x: 1
+y: 0.11
+w: 1
+h: 0.54
 clipLabel:
 
 []
