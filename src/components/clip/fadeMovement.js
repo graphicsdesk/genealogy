@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { areEqualShallow } from '../../utils';
+import { areEqualShallow, areSimilar } from '../../utils';
 
 const animationDuration = 500;
 
@@ -39,15 +39,22 @@ const fadeMovement = WrappedComponent => {
       if (areEqualShallow(prevProps.dims, this.props.dims)) {
         return;
       }
-      // If dims changed but same label, we can assume the page was resized
-      if (prevLabel === label) {
+      // If label remains the same and we think the highlighting box
+      // changed, we can assume the page was just resized
+      if (areSimilar(prevProps.dims, this.props.dims) && prevLabel === label) {
         this.setState({ dims });
         return;
       }
 
-      // If component has never been shown before, no need to fade out
-      if (prevDims.width + prevDims.height === 0) {
-        this.setState({ transitioning: false, dims, label });
+      // If previous clip was invisible...
+      if (prevDims.width === 0 && prevDims.height === 0) {
+        // If current clip is visible, it must be the first one we animate.
+        // Thus, we skip the transition-out animation and transition it in.
+        if (dims.width > 0 && dims.height > 0) {
+          this.setState({ transitioning: false, dims, label });
+        }
+        // If the current clip was not visible, this resize must have been
+        // triggered by a resize/initial dimension processing. Ignore.
         return;
       }
 

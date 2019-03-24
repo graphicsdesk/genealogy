@@ -34,3 +34,11 @@ export const debounceEvent = (callback, time) => {
 export const areEqualShallow = (a, b) =>
   Object.keys(a).length === Object.keys(b).length &&
   Object.keys(a).every(key => b.hasOwnProperty(key) && a[key] === b[key]);
+
+// Compares two dimension objects
+export const areSimilar = (a, b) => {
+  const { width: aw, height: ah } = a;
+  const { width: bw, height: bh } = b;
+
+  return Math.abs(ah / aw - bh / bw) < 0.001;
+};
