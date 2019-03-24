@@ -39,13 +39,17 @@ const styles = {
     maxWidth: '500px',
     textAlign: 'center',
     color: '#222',
-    padding: '1rem',
+    padding: '0.9rem',
     fontSize: '1.1rem',
     fontFamily: 'Merriweather',
     fontWeight: 400,
     lineHeight: '1.9rem',
+    '& em': {
+      color: '#1875E5',
+      fontWeight: 700,
+      fontStyle: 'normal',
+    },
   },
-
   '@media (max-width: 767px)': {
     steps: { padding: '0 5vw 130vh 5vw' },
   },
