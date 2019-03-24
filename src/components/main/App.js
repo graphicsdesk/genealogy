@@ -10,13 +10,12 @@ import copy from '../../copy';
 const { copyAbove, graphics } = archieml.load(copy);
 
 const processSteps = steps =>
-  steps.map(({ text, x, y, w, h, clipLabel }) => ({
+  steps.map(({ text, x, y, w, h }) => ({
     text: unicodify(text),
     x: +x,
     y: +y,
     w: +w,
     h: +h,
-    clipLabel,
   }));
 
 const styles = {

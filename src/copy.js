@@ -22,7 +22,6 @@ x: 0.38
 y: 0.04
 w: 0.2
 h: 0.90
-clipLabel:
 
 poem: Sitting on the lone rock under the tree, there’s light dew between the grass.
 My heart misses the one who has sat on this rock but they are no longer here.
@@ -33,14 +32,12 @@ x: 0.38
 y: 0.04
 w: 0.2
 h: 0.90
-clipLabel:
 
 text: They could carry <em>proud accounts of noteworthy women</em> in the family.
 x: 1.01
 y: 0.01
 w: 0.98
 h: 0.98
-clipLabel:
 
 []
 
@@ -54,14 +51,12 @@ x: 0.26
 y: 0.32
 w: 0.48
 h: 0.58
-clipLabel:
 
 text: And they might provide <em>portraits of the noblemen</em> from whom the family descends.
 x: 1
 y: 0.11
 w: 1
 h: 0.54
-clipLabel:
 
 []
 

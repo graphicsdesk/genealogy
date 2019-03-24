@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import ClipLabel from './ClipLabel';
 import ClipPath from './ClipPath';
 import fadeMovement from './fadeMovement';
 import { clipId, imageId } from '../../constants';
@@ -13,7 +12,6 @@ const ImageClip = ({ graphicId, dims, label }) => (
       xlinkHref={`#${imageId(graphicId)}`}
       clipPath={`url(#${clipId(graphicId)})`}
     />
-    <ClipLabel dims={dims} text={label} />
   </Fragment>
 );
 
