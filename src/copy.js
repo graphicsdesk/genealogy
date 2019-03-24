@@ -2,7 +2,7 @@ export default `
 [copyAbove]
 
 * In my imagination, the description would be short and basic, something along the lines of “youngest of three, born on a winter’s night in 1900 in Dong Yang city”. This volume was published in 1920 when my great-grandfather would have only been twenty years old. He had been born in the outskirts of Dongyang city to a farming family that barely earned enough money to send him to school. And so I was skeptical as to whether his family would have even been included in such a polished genealogy book. If my great-grandfather’s family were included in a printed genealogy record, I thought, Columbia University would surely have it. At 20,000 volumes, Columbia University boasts the largest collection of Chinese genealogical records in North America, with records dating as far back as the early 12th century.
-* These Jia pu are a kaleidoscope into everyday life, and each carefully compiled record became a new world that sprawled out in front of me. I was looking for something more fulfilling than standard family trees and ethnic percentages — I wanted short anecdotes and colorful pictures that narrated how my great-grandfather lived day-to-day. Though I ultimately did not uncover the story of my great-grandparents, unexpected and intriguing stories leapt off each page of the genealogies that I combed through.
+* These <i>Jia pu</i> are a kaleidoscope into everyday life, and each carefully compiled record became a new world that sprawled out in front of me. I was looking for something more fulfilling than standard family trees and ethnic percentages — I wanted short anecdotes and colorful pictures that narrated how my great-grandfather lived day-to-day. Though I ultimately did not uncover the story of my great-grandparents, unexpected and intriguing stories leapt off each page of the genealogies that I combed through.
 
 [graphics]
 
@@ -64,6 +64,10 @@ h: 0.54
 clipLabel:
 
 []
+
+[copyBelow]
+
+
 
 {}
 `;
