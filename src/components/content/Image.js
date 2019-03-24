@@ -30,6 +30,7 @@ const styles = {
   },
   caption: {
     fontFamily: 'Atlas Grotesk',
+    fontWeight: 400,
     fontSize: '0.95rem',
     color: '#999',
     margin: 0,
