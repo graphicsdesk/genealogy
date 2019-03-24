@@ -4,13 +4,14 @@ import injectSheet from 'react-jss';
 import uuidv4 from 'uuid/v4';
 import Graphic from './Graphic';
 import { Paragraph } from '../text';
+import { unicodify } from '../../utils';
 
 import copy from '../../copy';
 const { copyAbove, graphics } = archieml.load(copy);
 
 const processSteps = steps =>
   steps.map(({ text, x, y, w, h, clipLabel }) => ({
-    text,
+    text: unicodify(text),
     x: +x,
     y: +y,
     w: +w,
@@ -20,15 +21,18 @@ const processSteps = steps =>
 
 const styles = {
   App: {
-    margin: '70vh 0',
+    margin: '5vh 0',
   },
-  content: {},
+  content: {
+    marginBottom: '2rem',
+    padding: '0 15px',
+  },
 };
 
 const App = ({ classes }) => (
   <div className={classes.App}>
     <div className={classes.content}>
-      {copyAbove.map(text => <Paragraph text={text} />)}
+      {copyAbove.map(text => <Paragraph key={text} text={text} />)}
     </div>
     {graphics.map(({ leftImg, rightImg, steps }) => {
       const id = uuidv4();

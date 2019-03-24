@@ -42,3 +42,14 @@ export const areSimilar = (a, b) => {
 
   return Math.abs(ah / aw - bh / bw) < 0.001;
 };
+
+// An extremely limited unicodifier improved on a case-by-case basis
+export const unicodify = text =>
+  text
+    .replace('“', '\u201c')
+    .replace('”', '\u201d')
+    .replace('’', '\u2019')
+    .replace('‘', '\u2018');
+
+const htmlTagRegexp = /<[a-z][\s\S]*>/i;
+export const hasHTMLElements = string => htmlTagRegexp.test(string);

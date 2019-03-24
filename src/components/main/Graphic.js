@@ -18,7 +18,7 @@ const styles = {
   },
   steps: {
     WebkitTransform: 'translate3d(0, 0, 0)', // https://stackoverflow.com/questions/16033416/while-scrolling-on-an-ios-device-the-z-index-of-elements-isnt-working
-    padding: '0 7vw 120vh 7vw',
+    padding: '0 7vw 110vh 7vw',
 
     // Remove margin bottom on last className.step
     '& > div > div:last-child': {
