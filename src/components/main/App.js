@@ -3,9 +3,10 @@ import archieml from 'archieml';
 import injectSheet from 'react-jss';
 import uuidv4 from 'uuid/v4';
 import Graphic from './Graphic';
+import { Paragraph } from '../text';
 
 import copy from '../../copy';
-const graphics = archieml.load(copy).graphics;
+const { copyAbove, graphics } = archieml.load(copy);
 
 const processSteps = steps =>
   steps.map(({ text, x, y, w, h, clipLabel }) => ({
@@ -21,10 +22,14 @@ const styles = {
   App: {
     margin: '70vh 0',
   },
+  content: {},
 };
 
 const App = ({ classes }) => (
   <div className={classes.App}>
+    <div className={classes.content}>
+      {copyAbove.map(text => <Paragraph text={text} />)}
+    </div>
     {graphics.map(({ leftImg, rightImg, steps }) => {
       const id = uuidv4();
       return (
