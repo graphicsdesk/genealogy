@@ -16,19 +16,27 @@ self.__precacheManifest = [
     "url": "/genealogy/static/media/ancestral-map.d04420a2.jpg"
   },
   {
+    "revision": "461d1db9298415b139ab2c55a25254ee",
+    "url": "/genealogy/static/media/PortraitOfYuanTungLi.461d1db9.jpg"
+  },
+  {
+    "revision": "74d78f9460c84b1059248e5229fc7b71",
+    "url": "/genealogy/static/media/FairbankLetter.74d78f94.jpg"
+  },
+  {
     "revision": "d6c618738febd2a884bf",
     "url": "/genealogy/static/js/runtime~main.ac4a6a33.js"
   },
   {
-    "revision": "05adfa6d4645d3acd788",
-    "url": "/genealogy/static/js/main.ac28aa20.chunk.js"
+    "revision": "44e0b5e1b1d1abfbd437",
+    "url": "/genealogy/static/js/main.6d3fb192.chunk.js"
   },
   {
     "revision": "a163e2e6ccf26f7eb126",
     "url": "/genealogy/static/js/2.8029b7b6.chunk.js"
   },
   {
-    "revision": "5f592d7a0278f84d0127c735c59e6f09",
+    "revision": "1c1415d2249e3780d731808868bab7da",
     "url": "/genealogy/index.html"
   }
 ];
