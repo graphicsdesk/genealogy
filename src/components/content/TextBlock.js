@@ -23,10 +23,7 @@ const styles = {
 
 const TextBlock = ({ classes, text }) => {
   return (
-    <p
-      className={classes.text}
-      dangerouslySetInnerHTML={{ __html: text }}
-    />
+    <p className={classes.text} dangerouslySetInnerHTML={{ __html: text }} />
   );
 };
 

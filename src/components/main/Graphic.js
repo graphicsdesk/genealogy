@@ -59,9 +59,7 @@ class Graphic extends PureComponent {
           <Scrollama onStepEnter={this.onStepEnter}>
             {steps.map(data => (
               <Step key={data.text + data.poem} data={data}>
-                <div
-                  className={classes.step}
-                >
+                <div className={classes.step}>
                   {data.poem ? (
                     <PoemBlock text={data.poem} />
                   ) : (
