@@ -10,8 +10,9 @@ import copy from '../../copy';
 const { copyAbove, graphics, copyBelow } = archieml.load(copy);
 
 const processSteps = steps =>
-  steps.map(({ text, x, y, w, h }) => ({
+  steps.map(({ text, poem, x, y, w, h }) => ({
     text: unicodify(text),
+    poem,
     x: +x,
     y: +y,
     w: +w,

@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import injectSheet from 'react-jss';
-import Record from './Record';
 import { areEqualShallow } from '../../utils';
+import { TextBlock, PoemBlock } from '../content';
+import Record from './Record';
 
 const stepStyles = {
   marginBottom: '70vh',
@@ -19,10 +20,8 @@ const styles = {
   steps: {
     WebkitTransform: 'translate3d(0, 0, 0)', // https://stackoverflow.com/questions/16033416/while-scrolling-on-an-ios-device-the-z-index-of-elements-isnt-working
     padding: '0 7vw 110vh 7vw',
-
-    // Remove margin bottom on last className.step
     '& > div > div:last-child': {
-      marginBottom: 0,
+      marginBottom: 0, // Remove margin bottom on last className.step
     },
   },
   leftStep: {
@@ -33,22 +32,9 @@ const styles = {
     ...stepStyles,
     justifyContent: 'flex-end',
   },
-  stepText: {
-    backgroundColor: '#fff',
-    boxShadow: '0 5px 15px 0 rgba(0,0,0,0.41)',
-    maxWidth: '500px',
-    textAlign: 'center',
-    color: '#222',
-    padding: '0.9rem',
-    fontSize: '1.1rem',
-    fontFamily: 'Merriweather',
-    fontWeight: 400,
-    lineHeight: '1.9rem',
-    '& em': {
-      color: '#1875E5',
-      fontWeight: 700,
-      fontStyle: 'normal',
-    },
+  centerStep: {
+    ...stepStyles,
+    justifyContent: 'center',
   },
   '@media (max-width: 767px)': {
     steps: { padding: '0 5vw 130vh 5vw' },
@@ -87,14 +73,15 @@ class Graphic extends PureComponent {
         <article className={classes.steps}>
           <Scrollama onStepEnter={this.onStepEnter}>
             {steps.map(data => (
-              <Step key={data.text} data={data}>
+              <Step key={data.text + data.poem} data={data}>
                 <div
-                  className={data.x < 1 ? classes.rightStep : classes.leftStep}
+                  className={data.poem ? classes.centerStep : (data.x < 1 ? classes.rightStep : classes.leftStep)}
                 >
-                  <p
-                    className={classes.stepText}
-                    dangerouslySetInnerHTML={{ __html: data.text }}
-                  />
+                  {data.poem ? (
+                    <PoemBlock text={data.poem} />
+                  ) : (
+                    <TextBlock text={data.text} />
+                  )}
                 </div>
               </Step>
             ))}

@@ -45,6 +45,7 @@ export const areSimilar = (a, b) => {
 
 // An extremely limited unicodifier improved on a case-by-case basis
 export const unicodify = text =>
+  text &&
   text
     .replace('“', '\u201c')
     .replace('”', '\u201d')
