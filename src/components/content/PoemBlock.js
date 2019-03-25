@@ -29,7 +29,7 @@ const PoemBlock = ({ classes, text }) => {
     <div className={classes.poem}>
       <p className={classes.title}>{lines[0]}</p>
       {lines.slice(1).map(line =>
-        <p className={classes.line}>{line}</p>
+                          <p key={line} className={classes.line}>{line}</p>
       )}
     </div>
   );
