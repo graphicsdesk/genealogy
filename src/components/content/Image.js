@@ -8,7 +8,7 @@ const getImage = name => {
     case 'FairbankLetter.jpg':
     return require('./images/FairbankLetter.jpg');
   case 'MicrofilmedforGenealogicalSocietyOfSaltLakeCity.jpg':
-    return require('./images/MicrofilmedforGenealogicalSocietyOfSaltLakeCity.jpg')
+    return require('./images/MicrofilmedforGenealogicalSocietyOfSaltLakeCity.jpg');
     default:
       console.error(`Could not get image with name ${name} in getImage().`);
       return null;
@@ -23,7 +23,7 @@ const styles = {
   },
   rightContainer: {
     width: '35vw',
-    margin: '0 10vw 1.3rem 0.5rem',
+    margin: '0 10vw 0.5rem 1.3rem',
     float: 'right',
   },
   centerContainer: {
