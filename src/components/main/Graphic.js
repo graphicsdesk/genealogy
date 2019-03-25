@@ -5,10 +5,6 @@ import { areEqualShallow } from '../../utils';
 import { TextBlock, PoemBlock } from '../content';
 import Record from './Record';
 
-const stepStyles = {
-  marginBottom: '70vh',
-  display: 'flex',
-};
 const styles = {
   Graphic: {
     marginBottom: '5vh',
@@ -24,24 +20,13 @@ const styles = {
       marginBottom: 0, // Remove margin bottom on last className.step
     },
   },
-  leftStep: {
-    ...stepStyles,
-    justifyContent: 'flex-start',
-  },
-  rightStep: {
-    ...stepStyles,
-    justifyContent: 'flex-end',
-  },
-  centerStep: {
-    ...stepStyles,
+  step: {
+    marginBottom: '70vh',
+    display: 'flex',
     justifyContent: 'center',
   },
   '@media (max-width: 767px)': {
     steps: { padding: '0 5vw 130vh 5vw' },
-  },
-  '@media (max-width: 575px)': {
-    leftStep: { justifyContent: 'center' },
-    rightStep: { justifyContent: 'center' },
   },
 };
 
@@ -75,7 +60,7 @@ class Graphic extends PureComponent {
             {steps.map(data => (
               <Step key={data.text + data.poem} data={data}>
                 <div
-                  className={data.poem ? classes.centerStep : (data.x < 1 ? classes.rightStep : classes.leftStep)}
+                  className={classes.step}
                 >
                   {data.poem ? (
                     <PoemBlock text={data.poem} />

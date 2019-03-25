@@ -18,7 +18,7 @@ x: 0.01
 y: 0.01
 w: 0.98
 h: 0.98
-text: Strikingly different from the cold number-crunching mechanisms of modern-day western genealogy, these records (known as <i>jia pu</i>) may hold beautiful poems.
+text: Strikingly different from the cold number-crunching mechanisms of modern-day western genealogy, these records (known as <i>jia pu</i>) may hold beautiful poems\u2026
 
 x: 0.38
 y: 0.04
@@ -35,7 +35,7 @@ x: 1.01
 y: 0.01
 w: 0.98
 h: 0.98
-text: They could carry <em>proud accounts of noteworthy women</em> in the family.
+text: They may also carry <em>proud accounts of noteworthy women</em> in the family.
 
 []
 
