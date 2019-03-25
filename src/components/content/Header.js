@@ -18,6 +18,7 @@ const styles = {
   timestamp: {
     fontSize: '1rem',
     fontFamily: 'Atlas Grotesk',
+    color: '#333',
     margin: 0,
     textTransform: 'uppercase',
   },
@@ -29,6 +30,7 @@ const Header = ({ classes, header }) => {
     <div className={classes.header}>
       {bylines.map(line => (
         <p
+          key={line.substr(0, 100)}
           className={classes.byline}
           dangerouslySetInnerHTML={{ __html: line }}
         />

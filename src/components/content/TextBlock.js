@@ -5,10 +5,10 @@ const styles = {
   text: {
     backgroundColor: '#fff',
     boxShadow: '0 5px 15px 0 rgba(0,0,0,0.41)',
-    maxWidth: '500px',
+    maxWidth: '510px',
     textAlign: 'center',
     color: '#222',
-    padding: '0.9rem',
+    padding: '1.1rem',
     fontSize: '1.1rem',
     fontFamily: 'Merriweather',
     fontWeight: 400,

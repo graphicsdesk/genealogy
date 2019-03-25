@@ -33,15 +33,15 @@ const fadeMovement = WrappedComponent => {
     };
 
     componentDidUpdate(prevProps) {
-      const { dims: prevDims, label: prevLabel } = prevProps;
-      const { dims, label } = this.props;
+      const { dims: prevDims } = prevProps;
+      const { dims } = this.props;
 
       if (areEqualShallow(prevProps.dims, this.props.dims)) {
         return;
       }
       // If label remains the same and we think the highlighting box
       // changed, we can assume the page was just resized
-      if (areSimilar(prevProps.dims, this.props.dims) && prevLabel === label) {
+      if (areSimilar(prevProps.dims, this.props.dims)) {
         this.setState({ dims });
         return;
       }
@@ -51,27 +51,30 @@ const fadeMovement = WrappedComponent => {
         // If current clip is visible, it must be the first one we animate.
         // Thus, we skip the transition-out animation and transition it in.
         if (dims.width > 0 && dims.height > 0) {
-          this.setState({ transitioning: false, dims, label });
+          this.setState({ transitioning: false, dims });
         }
         // If the current clip was not visible, this resize must have been
         // triggered by a resize/initial dimension processing. Ignore.
         return;
       }
 
-      this.setState({ transitioning: true, dims: prevDims, label: prevLabel });
+      this.setState({ transitioning: true, dims: prevDims });
       setTimeout(() => {
-        this.setState({ dims, label }, () =>
-          this.setState({ transitioning: false }),
-        );
+        this.setState({ dims }, () => this.setState({ transitioning: false }));
       }, animationDuration);
     }
 
     render() {
       const { transitioning } = this.state;
-      const { classes } = this.props;
+      const { classes, graphicId } = this.props;
+      const dims = {
+        ...this.props.dims,
+        ...this.state.dims,
+      };
+
       return (
         <g className={transitioning ? classes.hide : classes.show}>
-          <WrappedComponent {...this.props} {...this.state} />
+          <WrappedComponent dims={dims} graphicId={graphicId} />
         </g>
       );
     }

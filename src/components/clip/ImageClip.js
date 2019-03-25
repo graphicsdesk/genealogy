@@ -3,7 +3,7 @@ import ClipPath from './ClipPath';
 import fadeMovement from './fadeMovement';
 import { clipId, imageId } from '../../constants';
 
-const ImageClip = ({ graphicId, dims, label }) => (
+const ImageClip = ({ graphicId, dims }) => (
   <Fragment>
     <defs>
       <ClipPath dims={dims} graphicId={graphicId} />
