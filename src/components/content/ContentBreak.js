@@ -4,9 +4,9 @@ import injectSheet from 'react-jss';
 const styles = {
   break: {
     display: 'block',
-    height: '1px',
+    height: '0.6px',
     border: 0,
-    borderTop: '1px solid #ddd',
+    borderTop: '1px solid #ccc',
     margin: '0 auto',
     marginBottom: '1.7rem',
     padding: 0,
