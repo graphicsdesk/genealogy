@@ -9,6 +9,15 @@ const styles = {
     fontFamily: 'Merriweather',
     margin: '0 auto 1.3rem auto',
     maxWidth: '650px',
+    '& a': {
+      textDecoration: 'none',
+      color: '#5ec2c2',
+      borderBottomColor: '#5ec2c2',
+      borderBottomWidth: 0,
+    },
+    '& a:hover': {
+      borderBottomWidth: '1px',
+    },
   },
 };
 

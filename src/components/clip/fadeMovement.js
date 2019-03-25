@@ -60,7 +60,9 @@ const fadeMovement = WrappedComponent => {
 
       this.setState({ transitioning: true, dims: prevDims, label: prevLabel });
       setTimeout(() => {
-        this.setState({ transitioning: false, dims, label });
+        this.setState({ dims, label }, () =>
+          this.setState({ transitioning: false }),
+        );
       }, animationDuration);
     }
 

@@ -1,11 +1,25 @@
 export default `
+{header}
+
+[.bylines]
+* By <a href="https://www.columbiaspectator.com/contributors/Victoria-Li/">Victoria Li</a>
+* Graphics by <a href="https://www.columbiaspectator.com/contributors/Jason-Kao/">Jason Kao</a>
+* Illustration by Sam Wilcox
+[]
+
+date: March 25, 2019
+
+{}
+
 [+copyAbove]
 
 text: My fingers feel along the rice paper pages as my eyes trace the inked lines for three characters: Yan Ji Ci.
 
-text: In my imagination, the description would be short and basic, something along the lines of “youngest of three, born on a winter’s night in 1900 in Dong Yang city”. This volume was published in 1920 when my great-grandfather would have only been twenty years old. He had been born in the outskirts of Dongyang city to a farming family that barely earned enough money to send him to school. And so I was skeptical as to whether his family would have even been included in such a polished genealogy book. If my great-grandfather’s family were included in a printed genealogy record, I thought, Columbia University would surely have it. At 20,000 volumes, Columbia University boasts the largest collection of Chinese genealogical records in North America, with records dating as far back as the early 12th century.
+text: In my imagination, the description would be short and basic, something along the lines of “youngest of three, born on a winter’s night in 1900 in Dong Yang city.” This volume was published in 1920 when my great-grandfather would have only been twenty years old. He had been born in the outskirts of Dongyang city to a farming family that barely earned enough money to send him to school. And so I was skeptical as to whether his family would have even been included in such a pretty genealogy book. If my great-grandfather were included in a printed genealogy, I thought, Columbia University would surely have it. At 20,000 volumes, C.V. Starr East Asian Studies Library at Columbia University boasts the largest collection of Chinese genealogical records in North America, with volumes dating as far back as the early 12th century.
 
-text: These <i>Jia pu</i> are a kaleidoscope into everyday life, and each carefully compiled record became a new world that sprawled out in front of me. I was looking for something more fulfilling than standard family trees and ethnic percentages — I wanted short anecdotes and colorful pictures that narrated how my great-grandfather lived day-to-day. Though I ultimately did not uncover the story of my great-grandparents, unexpected and intriguing stories leapt off each page of the genealogies that I combed through.
+text: The precious legacy of Chinese culture and history, these jia pu are invaluable treasures for scholarship and collective memory. More than 90 years ago a handful of librarians and scholars risked their lives to save these jia pu during the devastating Sino-Japanese War by sending them to Columbia University. Decades later these same genealogical records were used by the Mormon Church to perform <a href="https://www.lds.org/topics/proxy-baptism?lang=eng">proxy baptism</a>, a ritual in which full immersion baptism is performed in a temple by a living person on behalf of someone who is dead, on deceased Chinese ancestors.  The fact that these genealogies are now used for religious proselytization is a disappointing departure from the original intention of the scholars who fought hard to send them to Columbia. Today, these genealogies are still very much a part of the local culture of communities in China and throughout the Chinese diaspora. These genealogies should be more easily accessible, so that their preservation and safekeeping was not in vain.
+
+text: These <i>Jia pu</i> are a kaleidoscope into everyday life, and each carefully compiled record became a new world that sprawled out in front of me. I am looking for something more fulfilling than standard family trees and ethnic percentages — I want short anecdotes and colorful pictures that narrated how my great-grandfather lived day-to-day. In my hunt to find the story of my ancestors, unexpected and intriguing stories begin leaping off each page of the genealogies that I comb through.
 
 [graphics]
 
@@ -24,7 +38,13 @@ x: 0.38
 y: 0.04
 w: 0.2
 h: 0.90
-poem: \u201cWhile staying in the Pei Household I reminisce about an elder of the family\u201d by Ma Dai
+text: \u2026such as this one, entitled “While staying in the Pei Household I reminisce about an elder of the family.”
+
+x: 0.38
+y: 0.04
+w: 0.2
+h: 0.90
+poem: \u201cWhile staying in the Pei Household I reminisce about an elder of the family\u201d
 Sitting on the lone rock under the tree, there’s light dew between the grass.
 My heart misses the one who has sat on this rock but they are no longer here.
 Birds soar among the clouds, flying towards the south. The meandering mountain fill the quiet night as the clear, cool stream reflects the moonlight.

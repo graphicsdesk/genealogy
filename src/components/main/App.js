@@ -2,12 +2,12 @@ import React from 'react';
 import archieml from 'archieml';
 import injectSheet from 'react-jss';
 import uuidv4 from 'uuid/v4';
-import Graphic from './Graphic';
-import { Content, ContentBreak } from '../content';
-import { unicodify } from '../../utils';
-
 import copy from '../../copy';
-const { copyAbove, graphics, copyBelow } = archieml.load(copy);
+import { unicodify } from '../../utils';
+import { Content, ContentBreak, Header } from '../content';
+import Graphic from './Graphic';
+
+const { header, copyAbove, graphics, copyBelow } = archieml.load(copy);
 
 const processSteps = steps =>
   steps.map(({ text, poem, x, y, w, h }) => ({
@@ -27,6 +27,7 @@ const styles = {
 
 const App = ({ classes }) => (
   <div className={classes.App}>
+    <Header header={header} />
     <Content copy={copyAbove} />
     {graphics.map(({ leftImg, rightImg, steps }) => {
       const id = uuidv4();
