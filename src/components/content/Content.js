@@ -16,18 +16,21 @@ const Content = ({ classes, copy }) => {
     <div className={classes.content}>
       {copy.map(({ type, value }) => {
         switch (type) {
-        case 'text': return <Paragraph key={value} text={value} />;
-        case 'break': return <ThematicBreak key={value} />;
-        case 'image': return (
-          <Image
-            key={value.source}
-            source={value.source}
-            caption={value.caption}
-            align={value.align}
-          />
-        );
-        default:
-          return null;
+          case 'text':
+            return <Paragraph key={value} text={value} />;
+          case 'break':
+            return <ThematicBreak key={value} />;
+          case 'image':
+            return (
+              <Image
+                key={value.source}
+                source={value.source}
+                caption={value.caption}
+                align={value.align}
+              />
+            );
+          default:
+            return null;
         }
       })}
     </div>

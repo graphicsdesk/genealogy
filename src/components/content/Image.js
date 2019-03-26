@@ -7,15 +7,18 @@ const styles = {
     width: '35vw',
     margin: '0 1.3rem 0.5rem 10vw',
     float: 'left',
+    maxWidth: '600px',
   },
   rightContainer: {
     width: '35vw',
     margin: '0 10vw 0.5rem 1.3rem',
     float: 'right',
+    maxWidth: '600px',
   },
   centerContainer: {
     width: '70vw',
     margin: '0 auto 1.3rem auto',
+    maxWidth: '900px',
   },
   image: {
     width: '100%',
