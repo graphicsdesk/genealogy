@@ -1,19 +1,11 @@
 {
-  "main.js": "/genealogy/static/js/main.a9e3ab56.chunk.js",
-  "main.js.map": "/genealogy/static/js/main.a9e3ab56.chunk.js.map",
+  "main.js": "/genealogy/static/js/main.8d2df8e7.chunk.js",
+  "main.js.map": "/genealogy/static/js/main.8d2df8e7.chunk.js.map",
   "runtime~main.js": "/genealogy/static/js/runtime~main.ac4a6a33.js",
   "runtime~main.js.map": "/genealogy/static/js/runtime~main.ac4a6a33.js.map",
-  "static/js/2.20a7f6f7.chunk.js": "/genealogy/static/js/2.20a7f6f7.chunk.js",
-  "static/js/2.20a7f6f7.chunk.js.map": "/genealogy/static/js/2.20a7f6f7.chunk.js.map",
+  "static/js/2.f806f65e.chunk.js": "/genealogy/static/js/2.f806f65e.chunk.js",
+  "static/js/2.f806f65e.chunk.js.map": "/genealogy/static/js/2.f806f65e.chunk.js.map",
   "index.html": "/genealogy/index.html",
-  "precache-manifest.28fa34aeb6669200be1365f46637cd7c.js": "/genealogy/precache-manifest.28fa34aeb6669200be1365f46637cd7c.js",
-  "service-worker.js": "/genealogy/service-worker.js",
-  "static/media/Cover_Illustration.jpg": "/genealogy/static/media/Cover_Illustration.fe4b2bf1.jpg",
-  "static/media/FairbankLetter.jpg": "/genealogy/static/media/FairbankLetter.74d78f94.jpg",
-  "static/media/MicrofilmedforGenealogicalSocietyOfSaltLakeCity.jpg": "/genealogy/static/media/MicrofilmedforGenealogicalSocietyOfSaltLakeCity.a0478d48.jpg",
-  "static/media/PortraitOfYuanTungLi.jpg": "/genealogy/static/media/PortraitOfYuanTungLi.768d6608.jpg",
-  "static/media/ancestral-map.jpg": "/genealogy/static/media/ancestral-map.d04420a2.jpg",
-  "static/media/poem.jpg": "/genealogy/static/media/poem.d585b53b.jpg",
-  "static/media/portraits.jpg": "/genealogy/static/media/portraits.c29e8623.jpg",
-  "static/media/women.jpg": "/genealogy/static/media/women.4c418c48.jpg"
+  "precache-manifest.21019143f04705bfaf7e29d18e921cca.js": "/genealogy/precache-manifest.21019143f04705bfaf7e29d18e921cca.js",
+  "service-worker.js": "/genealogy/service-worker.js"
 }
