@@ -15,6 +15,6 @@ const styles = {
   },
 };
 
-const ContentBreak = ({ classes, copy }) => <hr className={classes.break} />;
+const ThematicBreak = ({ classes, copy }) => <hr className={classes.break} />;
 
-export default injectSheet(styles)(ContentBreak);
+export default injectSheet(styles)(ThematicBreak);

@@ -24,7 +24,7 @@ const styles = {
   headline: {
     display: 'inline-block',
     fontFamily: 'Merriweather',
-    fontSize: '2.4rem',
+    fontSize: '2.2rem',
     lineHeight: 1.5,
     color: '#333',
     margin: 0,
@@ -39,7 +39,7 @@ const styles = {
     fontSize: '1.05rem',
     fontFamily: 'Merriweather',
     margin: 0,
-    marginBottom: '6px',
+    marginBottom: '5px',
     fontWeight: 900,
   },
   timestamp: {
