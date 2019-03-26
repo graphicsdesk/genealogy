@@ -30,7 +30,7 @@ const App = ({ classes }) => (
   <div className={classes.App}>
     <Header header={header} />
     <Content copy={copyAbove} />
-    {graphics.map(({ leftImg, rightImg, steps }) => {
+    {graphics.map(({ leftImg, rightImg, steps, caption }) => {
       const id = uuidv4();
       return (
         <Graphic
@@ -39,6 +39,7 @@ const App = ({ classes }) => (
           leftImg={leftImg}
           rightImg={rightImg}
           steps={processSteps(steps)}
+          caption={caption}
         />
       );
     })}

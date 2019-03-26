@@ -7,7 +7,7 @@ import Record from './Record';
 
 const styles = {
   Graphic: {
-    marginBottom: '5vh',
+    marginBottom: '1.7rem',
   },
   sticky: {
     position: 'sticky',
@@ -29,6 +29,17 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
   },
+  captionContainer: {
+    marginTop: '0.4rem',
+    padding: '0 15px',
+  },
+  caption: {
+    fontFamily: 'Atlas Grotesk',
+    fontSize: '0.95rem',
+    maxWidth: '650px',
+    margin: '0 auto',
+    color: '#888',
+  },
   '@media (max-width: 767px)': {
     steps: { padding: '0 5vw 130vh 5vw' },
   },
@@ -47,7 +58,7 @@ class Graphic extends PureComponent {
 
   render() {
     const { clip } = this.state;
-    const { classes, id, leftImg, rightImg, steps } = this.props;
+    const { classes, id, leftImg, rightImg, steps, caption } = this.props;
 
     return (
       <div className={classes.Graphic}>
@@ -58,6 +69,11 @@ class Graphic extends PureComponent {
             rightImg={rightImg}
             clip={clip}
           />
+          {caption && (
+            <div className={classes.captionContainer}>
+              <p className={classes.caption}>{caption}</p>
+            </div>
+          )}
         </figure>
         <article className={classes.steps}>
           <Scrollama onStepEnter={this.onStepEnter}>

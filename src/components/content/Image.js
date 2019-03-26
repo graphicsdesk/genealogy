@@ -1,19 +1,6 @@
 import React from 'react';
 import injectSheet from 'react-jss';
-
-const getImage = name => {
-  switch (name) {
-    case 'PortraitOfYuanTungLi.jpg':
-      return require('./images/PortraitOfYuanTungLi.jpg');
-    case 'FairbankLetter.jpg':
-      return require('./images/FairbankLetter.jpg');
-    case 'MicrofilmedforGenealogicalSocietyOfSaltLakeCity.jpg':
-      return require('./images/MicrofilmedforGenealogicalSocietyOfSaltLakeCity.jpg');
-    default:
-      console.error(`Could not get image with name ${name} in getImage().`);
-      return null;
-  }
-};
+import getImage from './getImage';
 
 const styles = {
   leftContainer: {
@@ -38,7 +25,7 @@ const styles = {
     fontFamily: 'Atlas Grotesk',
     fontWeight: 400,
     fontSize: '0.95rem',
-    color: '#999',
+    color: '#888',
     margin: 0,
   },
   '@media (max-width: 991px)': {

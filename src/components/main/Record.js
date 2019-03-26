@@ -10,7 +10,7 @@ import { ImageClip } from '../clip';
 const ASPECT_RATIO = 1504 / 1024;
 const DEBOUNCE_TIME = 250;
 
-const margin = { top: 20, right: 20, bottom: 24, left: 20 };
+const margin = { top: 70, right: 20, bottom: 24, left: 20 };
 
 const styles = {
   container: {

@@ -1,7 +1,9 @@
 export default `
 {header}
 
-headline:
+headline: Are your dead Chinese ancestors Mormons? Gatekeepers: who owns your history?
+
+cover: Cover_Illustration.jpg
 
 [.bylines]
 * By <a href="https://www.columbiaspectator.com/contributors/Victoria-Li/">Victoria Li</a>
@@ -63,6 +65,7 @@ text: They may also carry <em>proud accounts of noteworthy women</em> in the fam
 
 leftImg: ancestral-map.jpg
 rightImg: portraits.jpg
+caption: Taken from Columbia University Libraries
 
 [.steps]
 
