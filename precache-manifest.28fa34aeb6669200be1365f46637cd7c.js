@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a0478d48f4582b224090f7584e0cbcce",
-    "url": "/genealogy/static/media/MicrofilmedforGenealogicalSocietyOfSaltLakeCity.a0478d48.jpg"
+    "revision": "fe4b2bf1dd390741aaf586bcb52f5724",
+    "url": "/genealogy/static/media/Cover_Illustration.fe4b2bf1.jpg"
   },
   {
-    "revision": "b491c8400175e4aca80e",
-    "url": "/genealogy/static/js/main.cd984135.chunk.js"
+    "revision": "f96008c9ebe88f722342",
+    "url": "/genealogy/static/js/main.a9e3ab56.chunk.js"
   },
   {
     "revision": "4c418c484e4b20e833d0734479d6dd1a",
@@ -18,6 +18,10 @@ self.__precacheManifest = [
   {
     "revision": "74d78f9460c84b1059248e5229fc7b71",
     "url": "/genealogy/static/media/FairbankLetter.74d78f94.jpg"
+  },
+  {
+    "revision": "a0478d48f4582b224090f7584e0cbcce",
+    "url": "/genealogy/static/media/MicrofilmedforGenealogicalSocietyOfSaltLakeCity.a0478d48.jpg"
   },
   {
     "revision": "d6c618738febd2a884bf",
@@ -36,11 +40,11 @@ self.__precacheManifest = [
     "url": "/genealogy/static/media/portraits.c29e8623.jpg"
   },
   {
-    "revision": "27d3431dbeadd6805c1c",
-    "url": "/genealogy/static/js/2.0e7bcccf.chunk.js"
+    "revision": "bb8a315a0fa8c75e29b3",
+    "url": "/genealogy/static/js/2.20a7f6f7.chunk.js"
   },
   {
-    "revision": "65787084c9f3b28b89e56676c35c2bc6",
+    "revision": "b592330c1aa734cd8b8cc583f7057c8e",
     "url": "/genealogy/index.html"
   }
 ];
