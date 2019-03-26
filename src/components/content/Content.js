@@ -2,6 +2,7 @@ import React from 'react';
 import injectSheet from 'react-jss';
 import Paragraph from './Paragraph';
 import Image from './Image';
+import ContentBreak from './ContentBreak';
 
 const styles = {
   content: {
@@ -24,6 +25,7 @@ const Content = ({ classes, copy }) => {
               align={value.align}
             />
           );
+        if (type === 'break') return <ContentBreak />;
         return null;
       })}
     </div>

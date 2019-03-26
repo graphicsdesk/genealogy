@@ -50,7 +50,8 @@ export const unicodify = text =>
     .replace('“', '\u201c')
     .replace('”', '\u201d')
     .replace('’', '\u2019')
-    .replace('‘', '\u2018');
+    .replace('‘', '\u2018')
+    .replace('...', '\u2026');
 
 const htmlTagRegexp = /<[a-z][\s\S]*>/i;
 export const hasHTMLElements = string => htmlTagRegexp.test(string);

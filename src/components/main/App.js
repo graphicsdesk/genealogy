@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import uuidv4 from 'uuid/v4';
 import copy from '../../copy';
 import { unicodify } from '../../utils';
-import { Content, ContentBreak, Header } from '../content';
+import { Content, Header } from '../content';
 import Graphic from './Graphic';
 
 const { header, copyAbove, graphics, copyBelow } = archieml.load(copy);
@@ -43,7 +43,6 @@ const App = ({ classes }) => (
         />
       );
     })}
-    <ContentBreak />
     <Content copy={copyBelow} />
   </div>
 );
