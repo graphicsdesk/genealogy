@@ -6,8 +6,8 @@ import ThematicBreak from './ThematicBreak';
 
 const styles = {
   content: {
-    marginBottom: '2rem',
-    padding: '0 15px',
+    marginBottom: '2rem !important',
+    padding: '0 15px !important',
   },
 };
 

@@ -3,15 +3,15 @@ import injectSheet from 'react-jss';
 
 const styles = {
   break: {
-    display: 'block',
-    height: '0.6px',
-    border: 0,
-    borderTop: '1px solid #ccc',
-    margin: '0 auto',
-    marginBottom: '1.7rem',
-    padding: 0,
-    width: '40vw',
-    maxWidth: '350px',
+    display: 'block !important',
+    height: '0.6px !important',
+    border: '0 !important',
+    borderTop: '1px solid #ccc !important',
+    margin: '0 auto !important',
+    marginBottom: '1.7rem !important',
+    padding: '0 !important',
+    width: '40vw !important',
+    maxWidth: '350px !important',
   },
 };
 

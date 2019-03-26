@@ -3,8 +3,8 @@ import injectSheet from 'react-jss';
 
 const styles = {
   mask: {
-    fill: '#000',
-    fillOpacity: 0.35,
+    fill: '#000 !important',
+    fillOpacity: '0.35 !important',
   },
 };
 

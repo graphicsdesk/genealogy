@@ -14,7 +14,7 @@ const margin = { top: 70, right: 20, bottom: 24, left: 20 };
 
 const styles = {
   container: {
-    transitionDuration: '0.6s',
+    transitionDuration: '0.6s !important',
   },
 };
 
