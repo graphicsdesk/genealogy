@@ -25,6 +25,10 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
   },
+  shortStep: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
   '@media (max-width: 767px)': {
     steps: { padding: '0 5vw 130vh 5vw' },
   },
@@ -59,7 +63,11 @@ class Graphic extends PureComponent {
           <Scrollama onStepEnter={this.onStepEnter}>
             {steps.map(data => (
               <Step key={data.text + data.poem} data={data}>
-                <div className={classes.step}>
+                <div
+                  className={
+                    data.noBottomMargin ? classes.shortStep : classes.step
+                  }
+                >
                   {data.poem ? (
                     <PoemBlock text={data.poem} />
                   ) : (

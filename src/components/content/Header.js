@@ -12,11 +12,11 @@ const styles = {
     fontSize: '1.05rem',
     fontFamily: 'Merriweather',
     margin: 0,
-    marginBottom: '5px',
+    marginBottom: '6px',
     fontWeight: 900,
   },
   timestamp: {
-    fontSize: '1rem',
+    fontSize: '0.97rem',
     fontFamily: 'Atlas Grotesk',
     color: '#333',
     margin: 0,
@@ -25,7 +25,7 @@ const styles = {
 };
 
 const Header = ({ classes, header }) => {
-  const { title, bylines, date } = header;
+  const { bylines, date } = header;
   return (
     <div className={classes.header}>
       {bylines.map(line => (

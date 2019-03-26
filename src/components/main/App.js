@@ -10,8 +10,9 @@ import Graphic from './Graphic';
 const { header, copyAbove, graphics, copyBelow } = archieml.load(copy);
 
 const processSteps = steps =>
-  steps.map(({ text, poem, x, y, w, h }) => ({
+  steps.map(({ text, poem, noBottomMargin, x, y, w, h }) => ({
     text: unicodify(text),
+    noBottomMargin,
     poem,
     x: +x,
     y: +y,

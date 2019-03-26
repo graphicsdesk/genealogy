@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 const styles = {
   poem: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    maxWidth: '500px',
+    maxWidth: '510px',
     textAlign: 'center',
     padding: '0.9rem',
     color: '#eee',
@@ -16,19 +16,12 @@ const styles = {
   line: {
     margin: '1rem 0',
   },
-  title: {
-    marginBottom: '1rem',
-    fontSize: '1.3rem',
-    fontWeight: 400,
-  },
 };
 
 const PoemBlock = ({ classes, text }) => {
-  const lines = text.split('\n');
   return (
     <div className={classes.poem}>
-      <p className={classes.title}>{lines[0]}</p>
-      {lines.slice(1).map(line => (
+      {text.split('\n').map(line => (
         <p key={line} className={classes.line}>
           {line}
         </p>
