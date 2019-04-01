@@ -1,7 +1,3 @@
-![alt](https://i.imgur.com/CP8pvpz.jpg)
-
-_Example design_
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
