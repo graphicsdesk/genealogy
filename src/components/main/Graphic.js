@@ -7,41 +7,41 @@ import Record from './Record';
 
 const styles = {
   Graphic: {
-    marginBottom: '1.7rem !important',
+    marginBottom: '1.7rem',
   },
   sticky: {
-    position: 'sticky !important',
-    top: '0 !important',
+    position: 'sticky',
+    top: 0,
   },
   steps: {
-    WebkitTransform: 'translate3d(0, 0, 0) !important', // https://stackoverflow.com/questions/16033416/while-scrolling-on-an-ios-device-the-z-index-of-elements-isnt-working
-    padding: '0 7vw 110vh 7vw !important',
+    WebkitTransform: 'translate3d(0, 0, 0)', // https://stackoverflow.com/questions/16033416/while-scrolling-on-an-ios-device-the-z-index-of-elements-isnt-working
+    padding: '0 7vw 110vh 7vw',
     '& > div > div:last-child': {
-      marginBottom: '0 !important', // Remove margin bottom on last className.step
+      marginBottom: 0, // Remove margin bottom on last className.step
     },
   },
   step: {
-    marginBottom: '70vh !important',
-    display: 'flex !important',
-    justifyContent: 'center !important',
+    marginBottom: '70vh',
+    display: 'flex',
+    justifyContent: 'center',
   },
   shortStep: {
-    display: 'flex !important',
-    justifyContent: 'center !important',
+    display: 'flex',
+    justifyContent: 'center',
   },
   captionContainer: {
-    marginTop: '0.4rem !important',
-    padding: '0 15px !important',
+    marginTop: '0.4rem',
+    padding: '0 15px',
   },
   caption: {
-    fontFamily: 'Atlas Grotesk !important',
-    fontSize: '0.95rem !important',
-    maxWidth: '650px !important',
-    margin: '0 auto !important',
-    color: '#888 !important',
+    fontFamily: 'Atlas Grotesk',
+    fontSize: '0.95rem',
+    maxWidth: '650px',
+    margin: '0 auto',
+    color: '#888',
   },
   '@media (max-width: 767px)': {
-    steps: { padding: '0 5vw 130vh 5vw !important' },
+    steps: { padding: '0 5vw 130vh 5vw' },
   },
 };
 

@@ -3,18 +3,18 @@ import injectSheet from 'react-jss';
 
 const styles = {
   poem: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5) !important',
-    maxWidth: '510px !important',
-    textAlign: 'center !important',
-    padding: '0.9rem !important',
-    color: '#eee !important',
-    fontSize: '1rem !important',
-    fontFamily: 'Atlas Grotesk !important',
-    fontWeight: '500 !important',
-    lineHeight: '1.7rem !important',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    maxWidth: '510px',
+    textAlign: 'center',
+    padding: '0.9rem',
+    color: '#eee',
+    fontSize: '1rem',
+    fontFamily: 'Atlas Grotesk',
+    fontWeight: 500,
+    lineHeight: '1.7rem',
   },
   line: {
-    margin: '1rem 0 !important',
+    margin: '1rem 0',
   },
 };
 

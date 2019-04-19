@@ -4,63 +4,63 @@ import getImage from './getImage';
 
 const styles = {
   leftContainer: {
-    width: '35vw !important',
-    margin: '0 1.3rem 0.5rem 10vw !important',
-    float: 'left !important',
-    maxWidth: '600px !important',
+    width: '35vw',
+    margin: '0 1.3rem 0.5rem 10vw',
+    float: 'left',
+    maxWidth: '600px',
   },
   rightContainer: {
-    width: '35vw !important',
-    margin: '0 10vw 0.5rem 1.3rem !important',
-    float: 'right !important',
-    maxWidth: '600px !important',
+    width: '35vw',
+    margin: '0 10vw 0.5rem 1.3rem',
+    float: 'right',
+    maxWidth: '600px',
   },
   centerContainer: {
-    width: '70vw !important',
-    margin: '0 auto 1.3rem auto !important',
-    maxWidth: '900px !important',
+    width: '70vw',
+    margin: '0 auto 1.3rem auto',
+    maxWidth: '900px',
   },
   image: {
-    width: '100% !important',
-    marginBottom: '10px !important',
+    width: '100%',
+    marginBottom: '10px',
   },
   caption: {
-    fontFamily: 'Atlas Grotesk !important',
-    fontWeight: '400 !important',
-    fontSize: '0.95rem !important',
-    color: '#888 !important',
-    margin: '0 !important',
+    fontFamily: 'Atlas Grotesk',
+    fontWeight: 400,
+    fontSize: '0.95rem',
+    color: '#888',
+    margin: 0,
   },
   '@media (max-width: 991px)': {
     leftContainer: {
-      width: '45vw !important',
-      marginLeft: '1.3rem !important',
+      width: '45vw',
+      marginLeft: '1.3rem',
     },
     rightContainer: {
-      width: '45vw !important',
-      marginRight: '1.3rem !important',
+      width: '45vw',
+      marginRight: '1.3rem',
     },
     centerContainer: {
-      width: '80vw !important',
+      width: '80vw',
     },
   },
   '@media (max-width: 726px)': {
-    leftContainer: { marginLeft: '0 !important' },
-    rightContainer: { marginRight: '0 !important' },
+    leftContainer: { marginLeft: 0 },
+    rightContainer: { marginRight: 0 },
   },
   '@media (max-width: 680px)': {
     centerContainer: {
-      width: 'auto !important',
+      width: 'auto',
     },
   },
   '@media (max-width: 575px)': {
     leftContainer: {
-      width: 'auto !important',
-      marginRight: '0 !important',
+      width: 'auto',
+      marginRight: 0,
     },
     rightContainer: {
-      width: 'auto !important',
-      marginLeft: '0 !important',
+      width: 'auto',
+      marginLeft: 0,
     },
   },
 };

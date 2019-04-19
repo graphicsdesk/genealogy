@@ -3,16 +3,21 @@ import injectSheet from 'react-jss';
 
 const styles = {
   text: {
-    backgroundColor: '#fff !important',
-    boxShadow: '0 5px 15px 0 rgba(0,0,0,0.41) !important',
-    maxWidth: '510px !important',
-    textAlign: 'center !important',
-    color: '#222 !important',
-    padding: '1.1rem !important',
-    fontSize: '1.1rem !important',
-    fontFamily: 'Merriweather !important',
-    fontWeight: '400 !important',
-    lineHeight: '1.9rem !important',
+    backgroundColor: '#fff',
+    boxShadow: '0 5px 15px 0 rgba(0,0,0,0.41)',
+    maxWidth: '510px',
+    textAlign: 'center',
+    color: '#222',
+    padding: '1.1rem',
+    fontSize: '1.1rem',
+    fontFamily: 'Merriweather',
+    fontWeight: 400,
+    lineHeight: '1.9rem',
+    '& em': {
+      color: '#1875E5',
+      fontWeight: 700,
+      fontStyle: 'normal',
+    },
   },
 };
 

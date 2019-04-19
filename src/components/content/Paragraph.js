@@ -4,19 +4,19 @@ import { hasHTMLElements } from '../../utils';
 
 const styles = {
   text: {
-    lineHeight: '1.9 !important',
-    fontSize: '1.1rem !important',
-    fontFamily: 'Merriweather !important',
-    margin: '0 auto 1.3rem auto !important',
-    maxWidth: '650px !important',
+    lineHeight: 1.9,
+    fontSize: '1.1rem',
+    fontFamily: 'Merriweather',
+    margin: '0 auto 1.3rem auto',
+    maxWidth: '650px',
     '& a': {
-      textDecoration: 'none !important',
-      color: '#5ec2c2 !important',
-      borderBottomColor: '#5ec2c2 !important',
-      borderBottomWidth: '0 !important',
+      textDecoration: 'none',
+      color: '#5ec2c2',
+      borderBottomColor: '#5ec2c2',
+      borderBottomWidth: 0,
     },
     '& a:hover': {
-      borderBottomWidth: '1px !important',
+      borderBottomWidth: '1px',
     },
   },
 };
